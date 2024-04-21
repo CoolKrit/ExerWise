@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.textfield.TextInputLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/TextInputLayoutStyle"
+    android:hint="@string/email"
+    app:endIconMode="clear_text">
+
+    <com.google.android.material.textfield.TextInputEditText
+        style="@style/TextInputEditStyle"
+        android:inputType="textEmailAddress"/>
+
+</com.google.android.material.textfield.TextInputLayout>
