@@ -43,18 +43,21 @@
             android:text="@string/please_sign_up" />
 
         <include
+            android:id="@+id/nameInputLayout"
             layout="@layout/name_input_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/dimen_16" />
 
         <include
+            android:id="@+id/emailInputLayout"
             layout="@layout/email_input_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/dimen_16" />
 
         <include
+            android:id="@+id/passwordInputLayout"
             layout="@layout/password_input_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -74,6 +77,7 @@
             android:orientation="vertical">
 
             <Button
+                android:id="@+id/signUp"
                 style="@style/Button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -150,6 +154,7 @@
                 android:text="@string/have_an_account" />
 
             <TextView
+                android:id="@+id/signIn"
                 style="@style/SmallText"
                 android:text="@string/sign_in"
                 android:textColor="@color/primary" />

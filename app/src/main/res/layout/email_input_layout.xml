@@ -6,6 +6,7 @@
     app:endIconMode="clear_text">
 
     <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/editText"
         style="@style/TextInputEditStyle"
         android:inputType="textEmailAddress"/>
 

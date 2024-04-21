@@ -15,4 +15,9 @@
         android:name="com.example.exerwise.SignUpFragment"
         android:label="fragment_sign_up"
         tools:layout="@layout/fragment_sign_up" />
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.example.exerwise.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main" />
 </navigation>
