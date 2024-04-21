@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "442685666365",
+    "project_id": "exerwise-app",
+    "storage_bucket": "exerwise-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:442685666365:android:cc5ba9eb6b4c3d71eda654",
+        "android_client_info": {
+          "package_name": "com.example.exerwise"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbOv2kZWgk-u3T3RKsP23pGerQBogmVUc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
