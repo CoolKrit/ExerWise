@@ -66,7 +66,8 @@ class SignUpFragment : Fragment() {
                 firebaseStore.collection("users").document(firebaseAuth.currentUser!!.uid)
                     .set(userMap)
 
-                firebaseAuth.currentUser!!.sendEmailVerification()
+                binding.emailInputLayout.editText.text?.clear()
+                binding.passwordInputLayout.editText.text?.clear()
                 findNavController().popBackStack()
             } else {
                 Toast.makeText(requireContext(), it.exception?.localizedMessage, Toast.LENGTH_SHORT)
