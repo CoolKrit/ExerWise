@@ -42,17 +42,19 @@
                 style="@style/Button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimen_32"
                 android:text="@string/create" />
 
             <TextView
                 style="@style/MediumTextView"
-                android:layout_marginBottom="@dimen/dimen_16"
                 android:text="Your Workouts" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:scrollbars="none" />
+                android:scrollbars="none"
+                tools:itemCount="6"
+                tools:listitem="@layout/new_workout_item" />
 
         </LinearLayout>
 
