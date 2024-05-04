@@ -14,7 +14,7 @@
         android:layout_gravity="center"
         android:text="Your week:" />
 
-    <com.example.exerwise.WeekdayIndicatorView
+    <com.example.exerwise.presentation.WeekdayIndicatorView
         android:id="@+id/weekdayIndicatorCircles"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

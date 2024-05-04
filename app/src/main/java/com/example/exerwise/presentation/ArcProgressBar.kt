@@ -1,4 +1,4 @@
-package com.example.exerwise
+package com.example.exerwise.presentation
 
 import android.content.Context
 import android.graphics.Canvas
@@ -7,6 +7,7 @@ import android.graphics.RectF
 import android.util.AttributeSet
 import android.view.View
 import androidx.core.content.ContextCompat
+import com.example.exerwise.R
 
 class ArcProgressBar @JvmOverloads constructor(
     context: Context,

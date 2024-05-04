@@ -1,4 +1,4 @@
-package com.example.exerwise
+package com.example.exerwise.presentation.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.exerwise.databinding.FragmentHomeBinding
+import com.example.exerwise.presentation.ArcProgressBar
+import com.example.exerwise.presentation.WeekdayIndicatorView
 
 
 class HomeFragment : Fragment() {
@@ -28,8 +30,8 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val arcProgressBarS: ArcProgressBar = binding.progressBars.arcProgressBarSteps
-        arcProgressBarS.setProgress(5000, 10000)
+        val arcProgressBar: ArcProgressBar = binding.progressBars.arcProgressBarSteps
+        arcProgressBar.setProgress(5000, 10000)
 
         val arcProgressBarW: ArcProgressBar = binding.progressBars.arcProgressBarWorkout
         arcProgressBarW.setProgress(12, 24)

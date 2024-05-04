@@ -1,15 +1,14 @@
-package com.example.exerwise
+package com.example.exerwise.presentation
 
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import android.util.AttributeSet
-import android.util.Log
 import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
-import kotlin.math.ceil
+import com.example.exerwise.R
 
 class WeekdayIndicatorView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0

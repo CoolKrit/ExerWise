@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".SignInFragment">
+    tools:context=".presentation.fragment.SignInFragment">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:layout_width="match_parent"
@@ -127,6 +127,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/signUpTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0"
@@ -138,7 +139,6 @@
                 android:text="@string/dont_have_an_account" />
 
             <TextView
-                android:id="@+id/signUp"
                 style="@style/SmallText"
                 android:text="@string/sign_up"
                 android:textColor="@color/primary" />
