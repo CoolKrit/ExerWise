@@ -35,16 +35,21 @@
 
         <TextView
             style="@style/MediumText"
+            android:layout_marginTop="@dimen/dimen_16"
             android:text="Good Morning, Amir" />
 
         <TextView
             style="@style/SmallText"
-            android:layout_marginBottom="@dimen/dimen_16"
+            android:layout_marginBottom="@dimen/dimen_32"
             android:text="Welcome to ExerWise App." />
 
         <include
             android:id="@+id/progressBars"
             layout="@layout/progress_bar_indicator" />
+
+        <include
+            android:id="@+id/weekdayIndicator"
+            layout="@layout/week_day_indicator" />
 
     </LinearLayout>
 

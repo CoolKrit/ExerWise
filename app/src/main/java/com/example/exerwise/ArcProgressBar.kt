@@ -83,7 +83,6 @@ class ArcProgressBar @JvmOverloads constructor(
         val sweepAngle = 180 * progress / maxProgress.toFloat()
         canvas.drawArc(rectF, 180f, sweepAngle, false, progressPaint)
 
-
         val textX = width / 2f
         val percentText = "${(progress.toFloat() / maxProgress * 100).toInt()}%"
         val textYP = calculateTextY(height / 2f, 0.1f, textPaintPercent)

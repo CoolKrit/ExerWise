@@ -36,5 +36,8 @@ class HomeFragment : Fragment() {
 
         val arcProgressBarC: ArcProgressBar = binding.progressBars.arcProgressBarCalories
         arcProgressBarC.setProgress(300, 1800)
+
+        val weekdayIndicator: WeekdayIndicatorView = binding.weekdayIndicator.weekdayIndicatorCircles
+        weekdayIndicator.markDayCompleted("M")
     }
 }
