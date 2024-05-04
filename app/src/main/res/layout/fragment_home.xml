@@ -12,7 +12,7 @@
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorSurface"
         app:title="@string/home"
-        app:titleTextAppearance="@style/BigText">
+        app:titleTextAppearance="@style/LargeTextView">
 
         <ImageButton
             android:layout_width="@dimen/dimen_32"
@@ -27,30 +27,48 @@
 
     </com.google.android.material.appbar.MaterialToolbar>
 
-    <LinearLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="@dimen/dimen_16">
+        android:layout_height="match_parent">
 
-        <TextView
-            style="@style/MediumText"
-            android:layout_marginTop="@dimen/dimen_16"
-            android:text="Good Morning, Amir" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/dimen_16">
 
-        <TextView
-            style="@style/SmallText"
-            android:layout_marginBottom="@dimen/dimen_32"
-            android:text="Welcome to ExerWise App." />
+            <TextView
+                style="@style/MediumTextView"
+                android:layout_marginTop="@dimen/dimen_16"
+                android:text="Good Morning, Amir" />
 
-        <include
-            android:id="@+id/progressBars"
-            layout="@layout/progress_bar_indicator" />
+            <TextView
+                style="@style/SmallTextView"
+                android:layout_marginBottom="@dimen/dimen_32"
+                android:text="Welcome to ExerWise App." />
 
-        <include
-            android:id="@+id/weekdayIndicator"
-            layout="@layout/week_day_indicator" />
+            <include
+                android:id="@+id/progressBars"
+                layout="@layout/progress_bar_indicator" />
 
-    </LinearLayout>
+            <include
+                android:id="@+id/weekdayIndicator"
+                layout="@layout/week_day_indicator" />
+
+            <TextView
+                style="@style/MediumTextView"
+                android:layout_gravity="center"
+                android:text="Latest workout:" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none"
+                tools:itemCount="6"
+                tools:listitem="@layout/latest_workout_item" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
 
 </LinearLayout>
