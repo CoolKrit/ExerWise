@@ -5,22 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".SignInFragment">
+    tools:context=".presentation.fragment.SignInFragment">
 
-    <com.google.android.material.appbar.AppBarLayout
+    <com.google.android.material.appbar.MaterialToolbar
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <com.google.android.material.appbar.MaterialToolbar
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                style="@style/BigText"
-                android:text="@string/sign_up" />
-        </com.google.android.material.appbar.MaterialToolbar>
-
-    </com.google.android.material.appbar.AppBarLayout>
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorSurface"
+        app:title="@string/sign_up"
+        app:titleTextAppearance="@style/BigText" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -61,7 +53,7 @@
             layout="@layout/password_input_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/dimen_16" />
+            android:layout_marginBottom="@dimen/dimen_8" />
 
         <CheckBox
             style="@style/SmallText"
@@ -143,6 +135,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/signInTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0"
@@ -154,7 +147,6 @@
                 android:text="@string/have_an_account" />
 
             <TextView
-                android:id="@+id/signIn"
                 style="@style/SmallText"
                 android:text="@string/sign_in"
                 android:textColor="@color/primary" />
