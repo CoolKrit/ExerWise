@@ -17,7 +17,7 @@
         tools:layout="@layout/fragment_sign_up" />
     <activity
         android:id="@+id/mainActivity"
-        android:name="com.example.exerwise.MainActivity"
+        android:name="com.example.exerwise.presentation.activity.MainActivity"
         android:label="activity_main"
         tools:layout="@layout/activity_main" />
 </navigation>

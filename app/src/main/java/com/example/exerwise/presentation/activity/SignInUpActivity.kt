@@ -1,7 +1,8 @@
-package com.example.exerwise
+package com.example.exerwise.presentation.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.exerwise.R
 
 class SignInUpActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
