@@ -12,7 +12,7 @@
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorSurface"
         app:title="@string/sign_up"
-        app:titleTextAppearance="@style/BigText" />
+        app:titleTextAppearance="@style/LargeTextView" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,13 +23,13 @@
         android:paddingBottom="@dimen/dimen_16">
 
         <TextView
-            style="@style/MediumText"
+            style="@style/MediumTextView"
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/dimen_32"
             android:text="@string/create_an_account" />
 
         <TextView
-            style="@style/SmallText"
+            style="@style/SmallTextView"
             android:layout_gravity="center"
             android:layout_marginBottom="@dimen/dimen_32"
             android:text="@string/please_sign_up" />
@@ -56,7 +56,7 @@
             android:layout_marginBottom="@dimen/dimen_8" />
 
         <CheckBox
-            style="@style/SmallText"
+            style="@style/SmallTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/agree_to_terms" />
@@ -143,11 +143,11 @@
             android:orientation="horizontal">
 
             <TextView
-                style="@style/SmallText"
+                style="@style/SmallTextView"
                 android:text="@string/have_an_account" />
 
             <TextView
-                style="@style/SmallText"
+                style="@style/SmallTextView"
                 android:text="@string/sign_in"
                 android:textColor="@color/primary" />
 
