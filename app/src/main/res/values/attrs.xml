@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ArcProgressBar">
+        <attr name="percentText" format="string" />
+        <attr name="progressText" format="string" />
+        <attr name="descriptionText" format="string" />
+    </declare-styleable>
+</resources>
