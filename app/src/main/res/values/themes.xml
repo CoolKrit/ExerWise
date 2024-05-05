@@ -8,9 +8,11 @@
         <item name="colorSurface">@color/surface</item>
         <item name="android:colorBackground">@color/background</item>
         <item name="colorOnPrimary">@color/onSurface</item>
+        <item name="colorOnSecondaryContainer">@color/white</item>
+        <item name="colorSecondaryContainer">@color/primary</item>
 
         <item name="android:statusBarColor">?attr/colorSurface</item>
-        <item name="android:navigationBarColor">@color/background</item>
+        <item name="android:navigationBarColor">?attr/colorSurface</item>
     </style>
 
     <style name="Theme.ExerWise" parent="Base.Theme.ExerWise" />
