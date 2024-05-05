@@ -10,6 +10,6 @@
         <item name="colorOnPrimary">@color/onSurface</item>
 
         <item name="android:statusBarColor">?attr/colorSurface</item>
-        <item name="android:navigationBarColor">@color/background</item>
+        <item name="android:navigationBarColor">?attr/colorSurface</item>
     </style>
 </resources>

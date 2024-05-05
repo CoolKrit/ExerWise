@@ -32,4 +32,6 @@
     <string name="create_workout">Create Workout</string>
     <string name="workout_title">Workout title</string>
     <string name="add_exercise">Add Exercise</string>
+    <string name="add">Add</string>
+    <string name="profile">Profile</string>
 </resources>
