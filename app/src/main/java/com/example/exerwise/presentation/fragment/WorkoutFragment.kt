@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.exerwise.R
 
-class NewWorkoutFragment : Fragment() {
+class WorkoutFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -17,6 +17,6 @@ class NewWorkoutFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_new_workout, container, false)
+        return inflater.inflate(R.layout.fragment_workout, container, false)
     }
 }

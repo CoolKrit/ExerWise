@@ -29,4 +29,7 @@
     <string name="create_a_workout_from_scratch">Create a workout from scratch</string>
     <string name="create">Create</string>
     <string name="start">Start</string>
+    <string name="create_workout">Create Workout</string>
+    <string name="workout_title">Workout title</string>
+    <string name="add_exercise">Add Exercise</string>
 </resources>
