@@ -50,11 +50,12 @@
                 android:text="Your Workouts" />
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/workoutsRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:scrollbars="none"
                 tools:itemCount="6"
-                tools:listitem="@layout/new_workout_item" />
+                tools:listitem="@layout/workout_item" />
 
         </LinearLayout>
 
