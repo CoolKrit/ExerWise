@@ -4,9 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="@dimen/dimen_16"
-    android:backgroundTint="@color/background"
-    app:cardCornerRadius="@dimen/dimen_16"
-    app:strokeColor="@color/onSurfaceVariant">
+    app:cardCornerRadius="@dimen/dimen_16">
+    <!--android:backgroundTint="@color/background"
+    app:strokeColor="@color/onSurfaceVariant">-->
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -15,7 +15,7 @@
 
         <TextView
             android:id="@+id/workoutTitle"
-            style="@style/MediumTextView"
+            style="@style/MediumTextViewStyle"
             android:text="Chest and shoulders"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -26,12 +26,12 @@
             android:layout_height="wrap_content"
             android:background="#00FFFFFF"
             android:src="@drawable/ic_baseline_more_horiz"
-            app:layout_constraintBottom_toBottomOf="@+id/textView"
+            app:layout_constraintBottom_toBottomOf="@+id/workoutTitle"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textView" />
+            app:layout_constraintTop_toTopOf="@+id/workoutTitle" />
 
         <Button
-            style="@style/Button"
+            style="@style/ButtonStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"

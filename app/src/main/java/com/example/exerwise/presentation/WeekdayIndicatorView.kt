@@ -2,12 +2,10 @@ package com.example.exerwise.presentation
 
 import android.content.Context
 import android.graphics.Canvas
-import android.graphics.Color
 import android.graphics.Paint
 import android.util.AttributeSet
 import android.view.View
 import androidx.core.content.ContextCompat
-import androidx.core.content.res.ResourcesCompat
 import com.example.exerwise.R
 
 class WeekdayIndicatorView @JvmOverloads constructor(
@@ -21,23 +19,24 @@ class WeekdayIndicatorView @JvmOverloads constructor(
     private var circleSpacing: Float = 0f
     private var textYOffset: Float = 0f
 
-    private val colorPrimary = ContextCompat.getColor(context, R.color.primary)
-    private val colorSurface = ContextCompat.getColor(context, R.color.surface)
+    private val colorWeekdayPrimary = ContextCompat.getColor(context, R.color.md_theme_primary)
+    private val colorWeekdaySurface = ContextCompat.getColor(context, R.color.md_theme_surfaceContainerHighest)
+    private val colorWeekdayText = ContextCompat.getColor(context, R.color.md_theme_onSurface)
 
-    private val grayPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = colorSurface
+    private val bluePaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+        color = colorWeekdayPrimary
         style = Paint.Style.FILL
     }
 
-    private val bluePaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = colorPrimary
+    private val grayPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+        color = colorWeekdaySurface
         style = Paint.Style.FILL
     }
 
     private val textPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = Color.WHITE
+        color = colorWeekdayText
         textSize = resources.getDimensionPixelSize(R.dimen.dimen_12sp).toFloat()
-        typeface = ResourcesCompat.getFont(context, R.font.lexend_regular)
+        typeface = resources.getFont(R.font.lexend_regular)
         textAlign = Paint.Align.CENTER
     }
 

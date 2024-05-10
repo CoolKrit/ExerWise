@@ -9,7 +9,7 @@
     android:layout_marginBottom="@dimen/dimen_32">
 
     <TextView
-        style="@style/MediumTextView"
+        style="@style/MediumTextViewStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

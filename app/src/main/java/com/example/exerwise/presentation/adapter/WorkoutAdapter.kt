@@ -1,26 +1,31 @@
-package com.example.exerwise.presentation.adapter
-
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.exerwise.data.model.Workout
-import com.example.exerwise.databinding.WorkoutItemBinding
+import com.example.exerwise.databinding.ItemWorkoutBinding
+import com.example.exerwise.presentation.interfaces.WorkoutItemClickListener
 
-class WorkoutAdapter : ListAdapter<Workout, WorkoutAdapter.WorkoutViewHolder>(WorkoutDiffCallback()) {
+class WorkoutAdapter : ListAdapter<Workout, WorkoutAdapter.ViewHolder>(WorkoutDiffCallback()) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WorkoutViewHolder {
-        val binding = WorkoutItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return WorkoutViewHolder(binding)
+    private var itemClickListener: WorkoutItemClickListener? = null
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val binding = ItemWorkoutBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return ViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: WorkoutViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val workout = getItem(position)
         holder.bind(workout)
+
+        holder.itemView.setOnClickListener {
+            itemClickListener?.onWorkoutItemClick(workout)
+        }
     }
 
-    class WorkoutViewHolder(private val binding: WorkoutItemBinding) : RecyclerView.ViewHolder(binding.root) {
+    class ViewHolder(private val binding: ItemWorkoutBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(workout: Workout) {
             binding.workoutTitle.text = workout.name
         }
@@ -34,5 +39,9 @@ class WorkoutAdapter : ListAdapter<Workout, WorkoutAdapter.WorkoutViewHolder>(Wo
         override fun areContentsTheSame(oldItem: Workout, newItem: Workout): Boolean {
             return oldItem == newItem
         }
+    }
+
+    fun setItemClickListener(listener: WorkoutItemClickListener) {
+        itemClickListener = listener
     }
 }
