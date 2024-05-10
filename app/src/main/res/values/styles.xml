@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="LargeTextViewStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">?attr/colorOnSurface</item>
+        <item name="android:textSize">@dimen/dimen_24sp</item>
+        <item name="android:fontFamily">@font/lexend_medium</item>
+    </style>
+
+    <style name="MediumTextViewStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">?attr/colorOnSurface</item>
+        <item name="android:textSize">@dimen/dimen_18sp</item>
+        <item name="android:fontFamily">@font/lexend_medium</item>
+    </style>
+
+    <style name="SmallTextViewStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">?attr/colorOnSurfaceVariant</item>
+        <item name="android:textSize">@dimen/dimen_14sp</item>
+        <item name="android:fontFamily">@font/lexend_regular</item>
+    </style>
+
+    <style name="TextInputLayoutStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="TextInputEditStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/lexend_medium</item>
+    </style>
+
+    <style name="ButtonStyle">
+        <item name="cornerRadius">@dimen/dimen_16</item>
+        <item name="android:textSize">@dimen/dimen_16sp</item>
+        <item name="android:fontFamily">@font/lexend_medium</item>
+    </style>
+</resources>

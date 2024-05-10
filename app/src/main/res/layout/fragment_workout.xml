@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".presentation.fragment.WorkoutFragment">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:title="@string/workout"
+        app:titleTextAppearance="@style/LargeTextViewStyle" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/dimen_16"
+            android:layout_marginTop="@dimen/dimen_16"
+            android:layout_marginEnd="@dimen/dimen_16"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/MediumTextViewStyle"
+                android:layout_gravity="center"
+                android:text="New Workout" />
+
+            <TextView
+                style="@style/SmallTextViewStyle"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/dimen_16"
+                android:text="@string/create_a_workout_from_scratch" />
+
+            <Button
+                android:id="@+id/createWorkout"
+                style="@style/ButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimen_32"
+                android:text="@string/create" />
+
+            <TextView
+                style="@style/MediumTextViewStyle"
+                android:text="Your Workouts" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/workoutsRV"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:nestedScrollingEnabled="false"
+                tools:listitem="@layout/item_workout" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

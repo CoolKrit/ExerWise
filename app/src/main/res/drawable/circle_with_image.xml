@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Фоновый круг -->
+    <item android:drawable="@drawable/custom_circle" />
+
+    <!-- Изображение поверх круга -->
+    <item
+        android:drawable="@drawable/ic_baseline_check"
+        android:gravity="center" />
+
+</layer-list>

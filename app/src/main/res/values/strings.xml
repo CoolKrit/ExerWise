@@ -1,3 +1,38 @@
 <resources>
     <string name="app_name">ExerWise</string>
+
+    <string name="sign_in">Sign In</string>
+    <string name="welcome_back">Welcome back!</string>
+    <string name="please_sign_in">Please sign in to your account.</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="or">or</string>
+    <string name="sign_in_with_google">Sign In with Google</string>
+    <string name="sign_in_with_apple">Sign In with Apple</string>
+    <string name="dont_have_an_account">"Don't have an account? "</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="create_an_account">Create an account</string>
+    <string name="please_sign_up">Please sign up and create a new account.</string>
+    <string name="name">Name</string>
+    <string name="agree_to_terms">Agree to terms and conditions</string>
+    <string name="sign_up_with_google">Sign Up with Google</string>
+    <string name="sign_up_with_apple">Sign Up with Apple</string>
+    <string name="have_an_account">"Have an account? "</string>
+
+    <string name="home">Home</string>
+    <string name="notification">Notification</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="workout">Workout</string>
+    <string name="create_a_workout_from_scratch">Create a workout from scratch</string>
+    <string name="create">Create</string>
+    <string name="start">Start</string>
+    <string name="create_workout">Create Workout</string>
+    <string name="workout_title">Workout title</string>
+    <string name="add_exercise">Add Exercise</string>
+    <string name="add">Add</string>
+    <string name="profile">Profile</string>
+    <string name="search_exercise">Search exercise</string>
 </resources>

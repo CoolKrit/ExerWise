@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.exerwise.presentation.fragment.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/workoutFragment"
+        android:name="com.example.exerwise.presentation.fragment.WorkoutFragment"
+        android:label="fragment_workout"
+        tools:layout="@layout/fragment_workout" />
+    <fragment
+        android:id="@+id/createWorkoutFragment"
+        android:name="com.example.exerwise.presentation.fragment.CreateWorkoutFragment"
+        android:label="fragment_create_workout"
+        tools:layout="@layout/fragment_create_workout" />
+    <fragment
+        android:id="@+id/exerciseListFragment"
+        android:name="com.example.exerwise.presentation.fragment.ExerciseListFragment"
+        android:label="fragment_exercise_list"
+        tools:layout="@layout/fragment_exercise_list" />
+    <fragment
+        android:id="@+id/editWorkoutFragment"
+        android:name="com.example.exerwise.presentation.fragment.EditWorkoutFragment"
+        android:label="fragment_edit_workout"
+        tools:layout="@layout/fragment_edit_workout" />
+</navigation>
