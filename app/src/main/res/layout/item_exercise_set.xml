@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -10,7 +9,6 @@
         android:id="@+id/textView4"
         style="@style/MediumTextViewStyle"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
         android:text="SET"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -19,7 +17,6 @@
     <TextView
         android:id="@+id/textView5"
         style="@style/MediumTextViewStyle"
-        android:layout_marginTop="16dp"
         android:text="KG"
         app:layout_constraintEnd_toEndOf="@+id/weightEditText"
         app:layout_constraintStart_toStartOf="@+id/weightEditText"
@@ -29,7 +26,6 @@
     <TextView
         android:id="@+id/textView6"
         style="@style/MediumTextViewStyle"
-        android:layout_marginTop="16dp"
         android:text="REPS"
         app:layout_constraintEnd_toEndOf="@+id/repsEditText"
         app:layout_constraintStart_toStartOf="@+id/repsEditText"
@@ -39,21 +35,20 @@
     <TextView
         android:id="@+id/setNumberTextView"
         style="@style/MediumTextViewStyle"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="12dp"
         android:text="1"
         app:layout_constraintBottom_toBottomOf="@+id/weightEditText"
         app:layout_constraintEnd_toEndOf="@+id/textView4"
         app:layout_constraintStart_toStartOf="@+id/textView4"
-        app:layout_constraintTop_toTopOf="@+id/weightEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <!-- Вес подхода -->
     <EditText
         android:id="@+id/weightEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAlignment="center"
         android:inputType="numberDecimal"
+        android:maxLength="4"
+        android:textAlignment="center"
         app:layout_constraintEnd_toStartOf="@+id/repsEditText"
         app:layout_constraintStart_toEndOf="@+id/setNumberTextView"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
@@ -64,8 +59,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="32dp"
-        android:textAlignment="center"
         android:inputType="number"
+        android:maxLength="4"
+        android:textAlignment="center"
         app:layout_constraintEnd_toStartOf="@+id/deleteSetButton"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
@@ -76,9 +72,10 @@
         android:layout_marginEnd="16dp"
         android:background="@android:color/transparent"
         android:contentDescription="Delete set"
-        android:src="@android:drawable/ic_delete"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:src="@drawable/ic_baseline_close"
+        app:layout_constraintBottom_toBottomOf="@+id/repsEditText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/textView6"
+        app:tint="@color/holo_red" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

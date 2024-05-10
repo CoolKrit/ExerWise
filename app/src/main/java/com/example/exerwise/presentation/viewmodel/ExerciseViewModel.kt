@@ -5,10 +5,19 @@ import com.example.exerwise.data.model.Exercise
 
 class ExerciseViewModel : ViewModel() {
     var selectedTitle = ""
-    val selectedExercises = mutableListOf<Exercise>()
+    var selectedId = ""
+    var selectedExercises = mutableListOf<Exercise>()
 
     fun addTitle(workoutTitle: String) {
         selectedTitle = workoutTitle
+    }
+
+    fun addIdWorkout(workoutId: String) {
+        selectedId = workoutId
+    }
+
+    fun addExerciseList(exerciseList: List<Exercise>) {
+        selectedExercises = exerciseList.toMutableList()
     }
 
     fun addExercise(exercise: Exercise) {

@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -45,13 +44,12 @@ class WorkoutFragment : Fragment() {
 
         workoutRVAdapter.setItemClickListener(object : WorkoutItemClickListener {
             override fun onWorkoutItemClick(workout: Workout) {
-                val bundle = bundleOf("workout" to workout)
-                // findNavController().navigate(R.id.workoutDetailsFragment, bundle)
+                val bundle = Bundle().apply { putParcelable("workout", workout) }
+                findNavController().navigate(R.id.editWorkoutFragment, bundle)
             }
         })
 
         binding.createWorkout.setOnClickListener {
-
             val navOptions = NavOptions.Builder().setPopUpTo(R.id.workoutFragment, true).build()
             findNavController().navigate(R.id.createWorkoutFragment, null, navOptions)
         }
@@ -59,8 +57,8 @@ class WorkoutFragment : Fragment() {
 
     private fun setupRecyclerView() {
         workoutRVAdapter = WorkoutAdapter()
-        binding.workoutsRecyclerView.layoutManager = LinearLayoutManager(requireContext())
-        binding.workoutsRecyclerView.adapter = workoutRVAdapter
+        binding.workoutsRV.layoutManager = LinearLayoutManager(requireContext())
+        binding.workoutsRV.adapter = workoutRVAdapter
     }
 
     private fun observeTrainings() {

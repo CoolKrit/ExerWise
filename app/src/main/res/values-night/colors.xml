@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="holo_red">#ffff4444</color>
+    <color name="holo_green">#ff99cc00</color>
+
     <color name="md_theme_primary">#AAC7FF</color>
     <color name="md_theme_onPrimary">#0A305F</color>
     <color name="md_theme_primaryContainer">#284777</color>

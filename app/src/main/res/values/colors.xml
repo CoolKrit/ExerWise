@@ -9,6 +9,9 @@
     <color name="surface">#1A1A1A</color>
     <color name="background">#080808</color>-->
 
+    <color name="holo_red">#ffcc0000</color>
+    <color name="holo_green">#ff669900</color>
+
     <color name="md_theme_primary">#415F91</color>
     <color name="md_theme_onPrimary">#FFFFFF</color>
     <color name="md_theme_primaryContainer">#D6E3FF</color>

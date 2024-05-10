@@ -25,4 +25,9 @@
         android:name="com.example.exerwise.presentation.fragment.ExerciseListFragment"
         android:label="fragment_exercise_list"
         tools:layout="@layout/fragment_exercise_list" />
+    <fragment
+        android:id="@+id/editWorkoutFragment"
+        android:name="com.example.exerwise.presentation.fragment.EditWorkoutFragment"
+        android:label="fragment_edit_workout"
+        tools:layout="@layout/fragment_edit_workout" />
 </navigation>

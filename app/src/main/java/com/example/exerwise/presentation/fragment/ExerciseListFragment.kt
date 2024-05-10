@@ -25,7 +25,7 @@ class ExerciseListFragment : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var recyclerView: RecyclerView
-    private lateinit var exAdapter: ExerciseListAdapter
+    private lateinit var exerciseAdapter: ExerciseListAdapter
     private lateinit var itemClickListener: ExerciseListItemClickListener
 
     private lateinit var exerciseViewModel: ExerciseViewModel
@@ -49,8 +49,8 @@ class ExerciseListFragment : Fragment() {
             ViewModelProvider(requireActivity())[ExerciseViewModel::class.java]
 
         recyclerView = view.findViewById(R.id.exerciseListRV)
-        exAdapter = ExerciseListAdapter(emptyList())
-        recyclerView.adapter = exAdapter
+        exerciseAdapter = ExerciseListAdapter(emptyList())
+        recyclerView.adapter = exerciseAdapter
 
         loadExercises("")
 
@@ -69,11 +69,11 @@ class ExerciseListFragment : Fragment() {
         itemClickListener = object : ExerciseListItemClickListener {
             override fun onItemClick(item: Exercise) {
                 exerciseViewModel.addExercise(item)
-                findNavController().navigate(R.id.createWorkoutFragment)
+                findNavController().popBackStack()
             }
         }
 
-        exAdapter.setOnItemClickListener(itemClickListener)
+        exerciseAdapter.setOnItemClickListener(itemClickListener)
     }
 
     private fun loadExercises(query: String) {
@@ -86,7 +86,7 @@ class ExerciseListFragment : Fragment() {
                 ) {
                     if (response.isSuccessful) {
                         val exercises = response.body() ?: emptyList()
-                        exAdapter.updateExercises(exercises)
+                        exerciseAdapter.updateExercises(exercises)
                     } else {
                     }
                 }

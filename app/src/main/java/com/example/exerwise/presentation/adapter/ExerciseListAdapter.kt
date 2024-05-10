@@ -14,8 +14,9 @@ class ExerciseListAdapter(private var data: List<Exercise>) : RecyclerView.Adapt
     private var itemClickListener: ExerciseListItemClickListener? = null
 
     inner class ViewHolder(binding: ItemExerciseListBinding) : RecyclerView.ViewHolder(binding.root) {
-        val textView: TextView = binding.exerciseTitle
-        val textViewMus: TextView = binding.exerciseMuscle
+        val exerciseTitle: TextView = binding.exerciseTitle
+        val exerciseMuscle: TextView = binding.exerciseMuscle
+        val exerciseInstructions: TextView = binding.exerciseInstructions
         var exerciseSets: MutableList<ExerciseSet> = mutableListOf()
     }
 
@@ -25,8 +26,9 @@ class ExerciseListAdapter(private var data: List<Exercise>) : RecyclerView.Adapt
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.textView.text = data[position].name
-        holder.textViewMus.text = data[position].muscle
+        holder.exerciseTitle.text = data[position].name
+        holder.exerciseMuscle.text = data[position].muscle
+        holder.exerciseInstructions.text = data[position].instructions
         holder.exerciseSets = data[position].sets
 
         // Устанавливаем слушатель кликов на элемент списка
