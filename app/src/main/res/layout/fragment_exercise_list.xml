@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:layout_marginTop="@dimen/dimen_16"
     android:layout_marginStart="@dimen/dimen_16"
+    android:layout_marginTop="@dimen/dimen_16"
     android:layout_marginEnd="@dimen/dimen_16"
+    android:orientation="vertical"
     tools:context=".presentation.fragment.ExerciseListFragment">
 
     <com.google.android.material.card.MaterialCardView
@@ -28,6 +28,7 @@
         android:id="@+id/exerciseListRV"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/item_exercise_list" />
 
 </LinearLayout>

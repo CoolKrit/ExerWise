@@ -104,18 +104,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/dimen_16"
-                android:backgroundTint="?attr/colorSecondary"
+                android:backgroundTint="?attr/colorOnSurface"
                 android:text="@string/sign_up_with_google"
                 app:icon="@drawable/ic_google"
-                app:iconGravity="textStart" />
-
-            <Button
-                style="@style/ButtonStyle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:backgroundTint="?attr/colorSecondary"
-                android:text="@string/sign_up_with_apple"
-                app:icon="@drawable/ic_apple"
                 app:iconGravity="textStart" />
 
         </LinearLayout>

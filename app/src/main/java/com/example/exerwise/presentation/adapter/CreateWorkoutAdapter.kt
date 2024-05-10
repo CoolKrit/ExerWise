@@ -19,6 +19,7 @@ import com.example.exerwise.R
 import com.example.exerwise.data.model.Exercise
 import com.example.exerwise.data.model.ExerciseSet
 import com.example.exerwise.databinding.ItemExerciseWorkoutBinding
+import com.google.android.material.card.MaterialCardView
 
 class CreateWorkoutAdapter(private val context: Context, private var data: MutableList<Exercise>) : RecyclerView.Adapter<CreateWorkoutAdapter.ViewHolder>() {
 
@@ -49,7 +50,8 @@ class CreateWorkoutAdapter(private val context: Context, private var data: Mutab
 
             setView.setOnClickListener {
                 val selectedRestTimeSeconds = exerciseRestSpinner.selectedItem as Int
-                setView.setBackgroundColor(context.getColor(R.color.holo_green))
+                val exerciseSetCardView: MaterialCardView = setView.findViewById(R.id.exersiceSetCardView)
+                exerciseSetCardView.setCardBackgroundColor(context.getColor(R.color.holo_green))
                 startRestTimer(selectedRestTimeSeconds.toLong())
             }
 

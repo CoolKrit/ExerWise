@@ -64,7 +64,8 @@
                 android:id="@+id/exercisesRV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:nestedScrollingEnabled="false" />
+                android:nestedScrollingEnabled="false"
+                tools:listitem="@layout/item_exercise_workout" />
 
             <Button
                 android:id="@+id/addExerciseButton"
