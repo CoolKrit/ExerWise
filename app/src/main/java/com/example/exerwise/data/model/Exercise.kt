@@ -4,8 +4,8 @@ import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class Workout(
-    val id: String = "",
+data class Exercise(
     val name: String = "",
-    val exercises: MutableList<Exercise> = mutableListOf()
+    val muscle: String = "",
+    var sets: MutableList<ExerciseSet> = mutableListOf()
 ) : Parcelable

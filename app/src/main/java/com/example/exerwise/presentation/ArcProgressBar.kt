@@ -27,31 +27,31 @@ class ArcProgressBar @JvmOverloads constructor(
     private var progressText: String = ""
     private var descriptionText: String = ""
 
-    private val colorPrimary = ContextCompat.getColor(context, R.color.primary)
-    private val colorSurface = ContextCompat.getColor(context, R.color.surface)
-    private val colorWhite = ContextCompat.getColor(context, R.color.white)
-    private val colorOnSurfaceVariant = ContextCompat.getColor(context, R.color.onSurfaceVariant)
+    private val colorProgressBar = ContextCompat.getColor(context, R.color.md_theme_primary)
+    private val colorProgressBarSurface = ContextCompat.getColor(context, R.color.md_theme_surfaceContainerHighest)
+    private val colorProgressText = ContextCompat.getColor(context, R.color.md_theme_onSurface)
+    private val colorOnSurfaceVariant = ContextCompat.getColor(context, R.color.md_theme_onSurfaceVariant)
 
 
     init {
         progressPaint.style = Paint.Style.STROKE
         progressPaint.strokeWidth = 20f
         progressPaint.strokeCap = Paint.Cap.ROUND
-        progressPaint.color = colorPrimary
+        progressPaint.color = colorProgressBar
 
         backgroundPaint.style = Paint.Style.STROKE
         backgroundPaint.strokeWidth = 20f
         backgroundPaint.strokeCap = Paint.Cap.ROUND
-        backgroundPaint.color = colorSurface
+        backgroundPaint.color = colorProgressBarSurface
 
         textPaintPercent.style = Paint.Style.FILL
-        textPaintPercent.color = colorWhite
+        textPaintPercent.color = colorProgressText
         textPaintPercent.textSize = resources.getDimensionPixelSize(R.dimen.dimen_20sp).toFloat()
         textPaintPercent.typeface = resources.getFont(R.font.lexend_medium)
         textPaintPercent.textAlign = Paint.Align.CENTER
 
         textPaintValue.style = Paint.Style.FILL
-        textPaintValue.color = colorWhite
+        textPaintValue.color = colorProgressText
         textPaintValue.textSize = resources.getDimensionPixelSize(R.dimen.dimen_12sp).toFloat()
         textPaintValue.typeface = resources.getFont(R.font.lexend_regular)
         textPaintValue.textAlign = Paint.Align.CENTER

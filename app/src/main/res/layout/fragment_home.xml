@@ -10,9 +10,8 @@
     <com.google.android.material.appbar.MaterialToolbar
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorSurface"
         app:title="@string/home"
-        app:titleTextAppearance="@style/LargeTextView">
+        app:titleTextAppearance="@style/LargeTextViewStyle">
 
         <ImageButton
             android:layout_width="@dimen/dimen_32"
@@ -23,7 +22,7 @@
             android:contentDescription="@string/notification"
             android:scaleType="fitXY"
             android:src="@drawable/ic_outline_notifications"
-            app:tint="@color/white" />
+            app:tint="?attr/colorOnSurface" />
 
     </com.google.android.material.appbar.MaterialToolbar>
 
@@ -38,12 +37,12 @@
             android:padding="@dimen/dimen_16">
 
             <TextView
-                style="@style/MediumTextView"
+                style="@style/MediumTextViewStyle"
                 android:layout_marginTop="@dimen/dimen_16"
                 android:text="Good Morning, Amir" />
 
             <TextView
-                style="@style/SmallTextView"
+                style="@style/SmallTextViewStyle"
                 android:layout_marginBottom="@dimen/dimen_32"
                 android:text="Welcome to ExerWise App." />
 
@@ -56,7 +55,7 @@
                 layout="@layout/week_day_indicator" />
 
             <TextView
-                style="@style/MediumTextView"
+                style="@style/MediumTextViewStyle"
                 android:layout_gravity="center"
                 android:text="Latest workout:" />
 
@@ -65,7 +64,7 @@
                 android:layout_height="wrap_content"
                 android:scrollbars="none"
                 tools:itemCount="6"
-                tools:listitem="@layout/latest_workout_item" />
+                tools:listitem="@layout/item_latest_workout" />
 
         </LinearLayout>
 

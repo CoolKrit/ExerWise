@@ -34,4 +34,5 @@
     <string name="add_exercise">Add Exercise</string>
     <string name="add">Add</string>
     <string name="profile">Profile</string>
+    <string name="search_exercise">Search exercise</string>
 </resources>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <!-- Номер подхода -->
+    <TextView
+        android:id="@+id/textView4"
+        style="@style/MediumTextViewStyle"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="SET"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Вес подхода -->
+    <TextView
+        android:id="@+id/textView5"
+        style="@style/MediumTextViewStyle"
+        android:layout_marginTop="16dp"
+        android:text="KG"
+        app:layout_constraintEnd_toEndOf="@+id/weightEditText"
+        app:layout_constraintStart_toStartOf="@+id/weightEditText"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Повторения подхода -->
+    <TextView
+        android:id="@+id/textView6"
+        style="@style/MediumTextViewStyle"
+        android:layout_marginTop="16dp"
+        android:text="REPS"
+        app:layout_constraintEnd_toEndOf="@+id/repsEditText"
+        app:layout_constraintStart_toStartOf="@+id/repsEditText"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Номер подхода -->
+    <TextView
+        android:id="@+id/setNumberTextView"
+        style="@style/MediumTextViewStyle"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="12dp"
+        android:text="1"
+        app:layout_constraintBottom_toBottomOf="@+id/weightEditText"
+        app:layout_constraintEnd_toEndOf="@+id/textView4"
+        app:layout_constraintStart_toStartOf="@+id/textView4"
+        app:layout_constraintTop_toTopOf="@+id/weightEditText" />
+
+    <!-- Вес подхода -->
+    <EditText
+        android:id="@+id/weightEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:inputType="numberDecimal"
+        app:layout_constraintEnd_toStartOf="@+id/repsEditText"
+        app:layout_constraintStart_toEndOf="@+id/setNumberTextView"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+    <!-- Повторения подхода -->
+    <EditText
+        android:id="@+id/repsEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:textAlignment="center"
+        android:inputType="number"
+        app:layout_constraintEnd_toStartOf="@+id/deleteSetButton"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+    <ImageButton
+        android:id="@+id/deleteSetButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="Delete set"
+        android:src="@android:drawable/ic_delete"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

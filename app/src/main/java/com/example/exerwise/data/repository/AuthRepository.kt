@@ -15,7 +15,6 @@ class AuthRepository {
                     firebaseStore.collection("users").document(firebaseAuth.currentUser!!.uid)
                         .set(userMap)
                         .addOnSuccessListener {
-                            firebaseAuth.currentUser!!.sendEmailVerification()
                             callback(true)
                         }
                         .addOnFailureListener { callback(false) }

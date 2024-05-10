@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="LargeTextView">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:textColor">?attr/colorOnSurface</item>
-        <item name="android:textSize">@dimen/dimen_28sp</item>
-        <item name="android:fontFamily">@font/lexend_medium</item>
-    </style>
-
-    <style name="MediumTextView">
+    <style name="LargeTextViewStyle">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">?attr/colorOnSurface</item>
@@ -17,11 +9,19 @@
         <item name="android:fontFamily">@font/lexend_medium</item>
     </style>
 
-    <style name="SmallTextView">
+    <style name="MediumTextViewStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">?attr/colorOnSurface</item>
+        <item name="android:textSize">@dimen/dimen_18sp</item>
+        <item name="android:fontFamily">@font/lexend_medium</item>
+    </style>
+
+    <style name="SmallTextViewStyle">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">?attr/colorOnSurfaceVariant</item>
-        <item name="android:textSize">@dimen/dimen_12sp</item>
+        <item name="android:textSize">@dimen/dimen_14sp</item>
         <item name="android:fontFamily">@font/lexend_regular</item>
     </style>
 
@@ -36,7 +36,7 @@
         <item name="android:fontFamily">@font/lexend_medium</item>
     </style>
 
-    <style name="Button">
+    <style name="ButtonStyle">
         <item name="cornerRadius">@dimen/dimen_16</item>
         <item name="android:textSize">@dimen/dimen_16sp</item>
         <item name="android:fontFamily">@font/lexend_medium</item>
