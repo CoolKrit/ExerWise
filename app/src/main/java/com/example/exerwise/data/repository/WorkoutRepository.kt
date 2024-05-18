@@ -67,7 +67,7 @@ class WorkoutRepository {
 
     fun getLastSevenWorkouts(callback: (List<Workout>) -> Unit) {
         finishedWorkoutsCollection
-            .orderBy("id", Query.Direction.DESCENDING)
+            .orderBy("id", Query.Direction.ASCENDING)
             .limit(7)
             .get()
             .addOnSuccessListener { result ->

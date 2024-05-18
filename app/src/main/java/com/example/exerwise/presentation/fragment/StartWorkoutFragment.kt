@@ -88,6 +88,7 @@ class StartWorkoutFragment : Fragment() {
                     viewModel.exercises.value!!
                 )
             )
+            findNavController().popBackStack()
         }
 
         startTimer()

@@ -118,6 +118,8 @@ class ExercisesListFragment : Fragment() {
             viewModel.fetchExercisesFiltered(query, "", equipment)
         } else if (equipment == "all") {
             viewModel.fetchExercisesFiltered(query, bodyPart, "")
+        } else {
+            viewModel.fetchExercisesFiltered(query, bodyPart, equipment)
         }
     }
 }

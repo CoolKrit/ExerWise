@@ -48,7 +48,7 @@ class EditWorkoutFragment : Fragment() {
             viewModel.setWorkout(workout)
         }
 
-        binding.workoutName.setText(viewModel.workoutName)
+        binding.workoutName.setText(viewModel.workout.value!!.name)
 
         val recyclerView = binding.exercisesRV
         val adapter = CreateWorkoutAdapter(viewModel) {

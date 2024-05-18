@@ -11,6 +11,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.exerwise.R
@@ -53,6 +54,10 @@ class FinishedWorkoutFragment : Fragment() {
         binding.textViewDuration.text = viewModel.workout.value!!.duration
         binding.textViewTotalWeight.text = viewModel.workout.value!!.volume
         binding.textViewTotalSets.text = viewModel.workout.value!!.sets
+
+        binding.closeEditWorkout.setOnClickListener {
+            findNavController().popBackStack()
+        }
 
         viewModel.exercises.observe(viewLifecycleOwner) { exercises ->
             if (exercises != null) {

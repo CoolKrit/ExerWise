@@ -43,16 +43,7 @@ class ExercisesListViewModel(application: Application) : AndroidViewModel(applic
 
     fun fetchExercisesFiltered(name: String, bodyPart: String, equipment: String) {
         viewModelScope.launch {
-            try {
-                val response = repository.getExercisesByName(name)
-                if (response.isSuccessful && response.body() != null) {
-                    _exercises.postValue(response.body())
-                } else {
-                    loadLocalExercisesFiltered(name, bodyPart, equipment)
-                }
-            } catch (e: Exception) {
-                loadLocalExercisesFiltered(name, bodyPart, equipment)
-            }
+            loadLocalExercisesFiltered(name, bodyPart, equipment)
         }
     }
 

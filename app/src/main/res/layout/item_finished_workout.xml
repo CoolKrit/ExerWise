@@ -5,8 +5,6 @@
     android:layout_height="wrap_content"
     android:layout_marginTop="@dimen/dimen_16"
     app:cardCornerRadius="@dimen/dimen_16">
-    <!--android:backgroundTint="@color/background"
-    app:strokeColor="@color/onSurfaceVariant">-->
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

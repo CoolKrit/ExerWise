@@ -15,7 +15,7 @@ object FirebaseUtils {
             "name" to workout.name,
             "exercises" to workout.exercises
         )
-        db.collection("users").document(FirebaseAuth.getInstance().currentUser!!.uid).collection("createdWorkouts").document(workout.id).set(workoutMap)
+        db.collection("users").document(firebaseAuth.currentUser!!.uid).collection("createdWorkouts").document(workout.id).set(workoutMap)
     }
 
     fun finishWorkout(workout: Workout) {
@@ -27,15 +27,6 @@ object FirebaseUtils {
             "sets" to  workout.sets,
             "exercises" to workout.exercises
         )
-        db.collection("users").document(FirebaseAuth.getInstance().currentUser!!.uid).collection("finishedWorkouts").document(workout.id).set(workoutMap)
-    }
-
-    fun autoSignIn() {
-        firebaseAuth.currentUser?.let {
-        } ?: run {
-            firebaseAuth.signInWithEmailAndPassword("amir.makhmudov.f@gmail.com", "135791")
-                .addOnCompleteListener {
-                }
-        }
+        db.collection("users").document(firebaseAuth.currentUser!!.uid).collection("finishedWorkouts").document(workout.id).set(workoutMap)
     }
 }

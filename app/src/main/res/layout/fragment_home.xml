@@ -26,8 +26,9 @@
             android:padding="@dimen/dimen_16">
 
             <TextView
+                android:id="@+id/userNameGreetings"
                 style="@style/MediumTextViewStyle"
-                android:text="Good Morning, Amir" />
+                android:text="Hi, Amir!" />
 
             <TextView
                 style="@style/SmallTextViewStyle"

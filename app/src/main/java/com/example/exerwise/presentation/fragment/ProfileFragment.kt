@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import com.example.exerwise.R
 import com.example.exerwise.databinding.FragmentProfileBinding
 import com.example.exerwise.presentation.viewmodel.WorkoutViewModel
 import com.github.mikephil.charting.charts.BarChart
@@ -45,6 +46,12 @@ class ProfileFragment : Fragment() {
                 binding.workoutsTV.text = count.toString()
             }
 
+        FirebaseFirestore.getInstance().collection("users").document(FirebaseAuth.getInstance().currentUser!!.uid)
+            .get().addOnSuccessListener {
+                val name = it.get("name")
+                binding.userName.text = name.toString()
+            }
+
         val chart: BarChart = binding.chart
 
         viewModel.workouts.observe(viewLifecycleOwner, Observer { workouts ->
@@ -58,6 +65,7 @@ class ProfileFragment : Fragment() {
             }
 
             val dataSet = BarDataSet(entries, "Workout Duration")
+            dataSet.color = resources.getColor(R.color.md_theme_primary)
             val barData = BarData(dataSet)
 
             chart.data = barData

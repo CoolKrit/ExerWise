@@ -15,6 +15,8 @@ import com.example.exerwise.data.model.Workout
 import com.example.exerwise.databinding.FragmentHomeBinding
 import com.example.exerwise.presentation.adapter.FinishedWorkoutAdapter
 import com.example.exerwise.presentation.viewmodel.WorkoutViewModel
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 class HomeFragment : Fragment() {
 
@@ -33,6 +35,12 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        FirebaseFirestore.getInstance().collection("users").document(FirebaseAuth.getInstance().currentUser!!.uid)
+            .get().addOnSuccessListener {
+                val name = it.get("name")
+                binding.userNameGreetings.text = "Hi, ${name.toString()}!"
+            }
 
         val recyclerView = binding.finishedWorkoutsRV
         val adapter = FinishedWorkoutAdapter()
