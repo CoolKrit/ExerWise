@@ -2,27 +2,29 @@ package com.example.exerwise.presentation.fragment
 
 import WorkoutAdapter
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.appcompat.widget.PopupMenu
+import androidx.core.view.get
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.exerwise.R
 import com.example.exerwise.data.model.Workout
 import com.example.exerwise.databinding.FragmentWorkoutBinding
-import com.example.exerwise.presentation.interfaces.WorkoutItemClickListener
 import com.example.exerwise.presentation.viewmodel.WorkoutViewModel
 
 class WorkoutFragment : Fragment() {
     private var _binding: FragmentWorkoutBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var workoutViewModel: WorkoutViewModel
-    private lateinit var workoutRVAdapter: WorkoutAdapter
+    private val viewModel: WorkoutViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,31 +42,72 @@ class WorkoutFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setupRecyclerView()
-        observeTrainings()
-
-        workoutRVAdapter.setItemClickListener(object : WorkoutItemClickListener {
-            override fun onWorkoutItemClick(workout: Workout) {
-                val bundle = Bundle().apply { putParcelable("workout", workout) }
-                findNavController().navigate(R.id.editWorkoutFragment, bundle)
-            }
-        })
 
         binding.createWorkout.setOnClickListener {
-            val navOptions = NavOptions.Builder().setPopUpTo(R.id.workoutFragment, true).build()
-            findNavController().navigate(R.id.createWorkoutFragment, null, navOptions)
+            //val navOptions = NavOptions.Builder().setPopUpTo(R.id.workoutFragment, true).build()
+            findNavController().navigate(R.id.action_workoutFragment_to_createWorkoutFragment)
         }
     }
 
     private fun setupRecyclerView() {
-        workoutRVAdapter = WorkoutAdapter()
-        binding.workoutsRV.layoutManager = LinearLayoutManager(requireContext())
-        binding.workoutsRV.adapter = workoutRVAdapter
+        val recyclerView = binding.workoutsRV
+        val adapter = WorkoutAdapter(object : WorkoutAdapter.OptionsMenuClickListener {
+            override fun onOptionsMenuClicked(position: Int, workout: Workout) {
+                performOptionsMenuClick(position, workout)
+            }
+        }, startButtonClickListener = { workout ->
+            val bundle = Bundle().apply {
+                putParcelable("workout", workout)
+            }
+            findNavController().navigate(R.id.action_workoutFragment_to_startWorkoutFragment, bundle)
+        })
+        recyclerView.layoutManager = LinearLayoutManager(context)
+        recyclerView.adapter = adapter
+
+        observeTrainings(adapter)
     }
 
-    private fun observeTrainings() {
-        workoutViewModel = ViewModelProvider(this)[WorkoutViewModel::class.java]
-        workoutViewModel.workoutList.observe(viewLifecycleOwner, Observer { trainings ->
-            workoutRVAdapter.submitList(trainings)
+    private fun observeTrainings(adapter: WorkoutAdapter) {
+        viewModel.createdWorkoutList.observe(viewLifecycleOwner, Observer { workouts ->
+            adapter.submitList(workouts)
         })
+    }
+
+    private fun performOptionsMenuClick(position: Int, workout: Workout) {
+        val popupMenu = PopupMenu(
+            requireContext(),
+            binding.workoutsRV[position].findViewById(R.id.workoutMoreMenu)
+        )
+        popupMenu.setOnMenuItemClickListener(object : PopupMenu.OnMenuItemClickListener {
+            override fun onMenuItemClick(item: MenuItem?): Boolean {
+                when (item?.itemId) {
+                    R.id.editButton -> {
+                        val bundle = Bundle().apply { putParcelable("workout", workout) }
+                        findNavController().navigate(R.id.editWorkoutFragment, bundle)
+                        return true
+                    }
+
+                    R.id.deleteButton -> {
+                        Toast.makeText(requireContext(), "Item 2 clicked", Toast.LENGTH_SHORT)
+                            .show()
+                        return true
+                    }
+                }
+                return false
+            }
+        })
+        popupMenu.inflate(R.menu.menu_more_item_workout)
+        try {
+            val fieldMPopup = PopupMenu::class.java.getDeclaredField("mPopup")
+            fieldMPopup.isAccessible = true
+            val mPopup = fieldMPopup.get(popupMenu)
+            mPopup.javaClass
+                .getDeclaredMethod("setForceShowIcon", Boolean::class.java)
+                .invoke(mPopup, true)
+        } catch (e: Exception) {
+            Log.e("Main", "Error showing menu icons.", e)
+        } finally {
+            popupMenu.show()
+        }
     }
 }

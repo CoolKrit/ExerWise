@@ -8,15 +8,16 @@
     android:layout_marginTop="@dimen/dimen_16"
     android:layout_marginEnd="@dimen/dimen_16"
     android:orientation="vertical"
-    tools:context=".presentation.fragment.ExerciseListFragment">
+    tools:context=".presentation.fragment.ExercisesListFragment">
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dimen_8"
         app:cardCornerRadius="@dimen/dimen_16">
 
         <SearchView
-            android:id="@+id/exerciseListSV"
+            android:id="@+id/exercisesListSV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:iconifiedByDefault="false"
@@ -24,11 +25,31 @@
 
     </com.google.android.material.card.MaterialCardView>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dimen_16"
+        android:orientation="horizontal">
+
+        <Spinner
+            android:id="@+id/spinnerBodyPart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <Spinner
+            android:id="@+id/spinnerEquipment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/exerciseListRV"
+        android:id="@+id/exercisesListRV"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/item_exercise_list" />
+        tools:listitem="@layout/item_exercises_list" />
 
 </LinearLayout>

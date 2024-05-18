@@ -53,7 +53,7 @@
             android:paddingBottom="@dimen/dimen_16">
 
             <EditText
-                android:id="@+id/workoutTitle"
+                android:id="@+id/workoutName"
                 style="@style/MediumTextViewStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -64,7 +64,7 @@
                 android:id="@+id/exercisesRV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:listitem="@layout/item_exercise_workout"
+                tools:listitem="@layout/item_exercise"
                 android:nestedScrollingEnabled="false" />
 
             <Button

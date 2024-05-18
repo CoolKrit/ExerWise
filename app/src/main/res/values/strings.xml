@@ -35,4 +35,58 @@
     <string name="add">Add</string>
     <string name="profile">Profile</string>
     <string name="search_exercise">Search exercise</string>
+    <string name="edit_workout">Edit Workout</string>
+    <string name="delete_workout">Delete Workout</string>
+    <string name="new_workout">New Workout</string>
+    <string name="your_workouts">Your Workouts</string>
+    <string name="duration">Duration</string>
+    <string name="volume">Volume</string>
+    <string name="sets">Sets</string>
+    <string name="time">Time</string>
+    <string name="workouts">Workouts</string>
+
+    <array name="body_part_array">
+        <item>All</item>
+        <item>Back</item>
+        <item>Cardio</item>
+        <item>Chest</item>
+        <item>Lower Arms</item>
+        <item>Lower Legs</item>
+        <item>Neck</item>
+        <item>Shoulders</item>
+        <item>Upper Arms</item>
+        <item>Upper Legs</item>
+        <item>Waist</item>
+    </array>
+
+    <array name="equipment_array">
+        <item>All</item>
+        <item>Assisted</item>
+        <item>Band</item>
+        <item>Barbell</item>
+        <item>Body Weight</item>
+        <item>Bosu Ball</item>
+        <item>Cable</item>
+        <item>Dumbbell</item>
+        <item>Elliptical Machine</item>
+        <item>EZ Barbell</item>
+        <item>Hammer</item>
+        <item>Kettlebell</item>
+        <item>Leverage Machine</item>
+        <item>Medicine Ball</item>
+        <item>Resistance Band</item>
+        <item>Roller</item>
+        <item>Rope</item>
+        <item>Skierg Machine</item>
+        <item>Sled Machine</item>
+        <item>Smith Machine</item>
+        <item>Stability Ball</item>
+        <item>Stationary Bike</item>
+        <item>Stepmill Machine</item>
+        <item>Tire</item>
+        <item>Trap Bar</item>
+        <item>Upper Body Ergometer</item>
+        <item>Weighted</item>
+        <item>Wheel Roller</item>
+    </array>
 </resources>

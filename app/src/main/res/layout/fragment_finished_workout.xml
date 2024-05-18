@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="@dimen/dimen_16"
+    tools:context=".presentation.fragment.FinishedWorkoutFragment">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorSurface">
+
+        <ImageButton
+            android:id="@+id/closeEditWorkout"
+            android:layout_width="@dimen/dimen_32"
+            android:layout_height="@dimen/dimen_32"
+            android:layout_gravity="start"
+            android:background="@android:color/transparent"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_baseline_close"
+            app:tint="?attr/colorPrimary" />
+
+        <TextView
+            android:id="@+id/workoutName"
+            style="@style/LargeTextViewStyle"
+            android:layout_gravity="center"
+            android:text="@string/edit_workout" />
+
+    </com.google.android.material.appbar.MaterialToolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:baselineAligned="false"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/SmallTextViewStyle"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:text="@string/time" />
+
+            <TextView
+                android:id="@+id/textViewDuration"
+                style="@style/MediumTextViewStyle"
+                android:layout_width="match_parent"
+                android:gravity="center" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/SmallTextViewStyle"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:text="@string/volume" />
+
+            <TextView
+                android:id="@+id/textViewTotalWeight"
+                style="@style/MediumTextViewStyle"
+                android:layout_width="match_parent"
+                android:gravity="center" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/SmallTextViewStyle"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:text="@string/sets" />
+
+            <TextView
+                android:id="@+id/textViewTotalSets"
+                style="@style/MediumTextViewStyle"
+                android:layout_width="match_parent"
+                android:gravity="center" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewExercises"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+</LinearLayout>

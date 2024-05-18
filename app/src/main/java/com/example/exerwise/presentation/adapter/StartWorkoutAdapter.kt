@@ -7,15 +7,15 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.exerwise.data.model.Exercise
 import com.example.exerwise.data.model.Set
-import com.example.exerwise.databinding.ItemExerciseBinding
+import com.example.exerwise.databinding.ItemExerciseStartWorkoutBinding
 import com.example.exerwise.presentation.viewmodel.CreateWorkoutViewModel
 
-class CreateWorkoutAdapter(private val viewModel: CreateWorkoutViewModel, private val onExerciseClick: (Exercise) -> Unit) : RecyclerView.Adapter<CreateWorkoutAdapter.ExerciseViewHolder>() {
+class StartWorkoutAdapter(private val viewModel: CreateWorkoutViewModel, private val onExerciseClick: (Exercise) -> Unit) : RecyclerView.Adapter<StartWorkoutAdapter.ExerciseViewHolder>() {
 
     private val exercises = mutableListOf<Exercise>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ExerciseViewHolder {
-        val binding = ItemExerciseBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = ItemExerciseStartWorkoutBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ExerciseViewHolder(binding, viewModel)
     }
 
@@ -32,7 +32,7 @@ class CreateWorkoutAdapter(private val viewModel: CreateWorkoutViewModel, privat
     }
 
     inner class ExerciseViewHolder(
-        private val binding: ItemExerciseBinding,
+        private val binding: ItemExerciseStartWorkoutBinding,
         private val viewModel: CreateWorkoutViewModel
     ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(exercise: Exercise) {
@@ -42,10 +42,6 @@ class CreateWorkoutAdapter(private val viewModel: CreateWorkoutViewModel, privat
             Glide.with(binding.exerciseIV.context)
                 .load(exercise.gifUrl)
                 .into(binding.exerciseIV)
-            binding.exerciseDeleteButton.setOnClickListener {
-                exercises.remove(exercise)
-                notifyDataSetChanged()
-            }
 
             val setsAdapter = SetsAdapter(exercise, viewModel)
             binding.exerciseSetsRV.layoutManager = LinearLayoutManager(binding.root.context)

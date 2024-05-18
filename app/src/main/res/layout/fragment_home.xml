@@ -13,17 +13,6 @@
         app:title="@string/home"
         app:titleTextAppearance="@style/LargeTextViewStyle">
 
-        <ImageButton
-            android:layout_width="@dimen/dimen_32"
-            android:layout_height="@dimen/dimen_32"
-            android:layout_gravity="end"
-            android:layout_marginEnd="@dimen/dimen_16"
-            android:background="#00FFFFFF"
-            android:contentDescription="@string/notification"
-            android:scaleType="fitXY"
-            android:src="@drawable/ic_outline_notifications"
-            app:tint="?attr/colorOnSurface" />
-
     </com.google.android.material.appbar.MaterialToolbar>
 
     <androidx.core.widget.NestedScrollView
@@ -37,22 +26,14 @@
             android:padding="@dimen/dimen_16">
 
             <TextView
+                android:id="@+id/userNameGreetings"
                 style="@style/MediumTextViewStyle"
-                android:layout_marginTop="@dimen/dimen_16"
-                android:text="Good Morning, Amir" />
+                android:text="Hi, Amir!" />
 
             <TextView
                 style="@style/SmallTextViewStyle"
                 android:layout_marginBottom="@dimen/dimen_32"
                 android:text="Welcome to ExerWise App." />
-
-            <include
-                android:id="@+id/progressBars"
-                layout="@layout/progress_bar_indicator" />
-
-            <include
-                android:id="@+id/weekdayIndicator"
-                layout="@layout/week_day_indicator" />
 
             <TextView
                 style="@style/MediumTextViewStyle"
@@ -60,11 +41,12 @@
                 android:text="Latest workout:" />
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/finishedWorkoutsRV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:scrollbars="none"
                 tools:itemCount="6"
-                tools:listitem="@layout/item_latest_workout" />
+                tools:listitem="@layout/item_finished_workout" />
 
         </LinearLayout>
 

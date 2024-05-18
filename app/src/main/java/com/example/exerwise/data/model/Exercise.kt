@@ -5,8 +5,14 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Exercise(
-    val name: String = "",
-    val muscle: String = "",
-    val instructions: String = "",
-    var sets: MutableList<ExerciseSet> = mutableListOf()
-) : Parcelable
+    val id: Int,
+    val name: String,
+    val bodyPart: String,
+    val equipment: String,
+    val target: String,
+    val gifUrl: String,
+    val instructions: List<String>,
+    val exerciseSetsList: MutableList<Set>
+) : Parcelable {
+    constructor() : this(0, "", "", "", "", "", emptyList(), mutableListOf())
+}

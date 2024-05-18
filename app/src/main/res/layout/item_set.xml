@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingStart="@dimen/dimen_16"
+    android:paddingTop="@dimen/dimen_16"
+    android:paddingEnd="@dimen/dimen_16">
+
+    <TextView
+        android:id="@+id/textViewSetNumber"
+        android:layout_width="@dimen/dimen_24"
+        style="@style/MediumTextViewStyle"
+        android:layout_marginEnd="@dimen/dimen_16"
+        android:gravity="center"
+        android:text="1" />
+
+    <EditText
+        android:id="@+id/editTextWeight"
+        android:layout_width="@dimen/dimen_0"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:hint="Weight (kg)"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/editTextReps"
+        android:layout_width="@dimen/dimen_0"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:hint="Reps"
+        android:inputType="number" />
+
+    <ImageButton
+        android:id="@+id/imageButtonDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="0"
+        android:layout_marginStart="@dimen/dimen_16"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_outline_delete" />
+</LinearLayout>

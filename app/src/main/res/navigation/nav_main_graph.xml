@@ -9,25 +9,62 @@
         android:id="@+id/homeFragment"
         android:name="com.example.exerwise.presentation.fragment.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_finishedWorkoutFragment"
+            app:destination="@id/finishedWorkoutFragment" />
+    </fragment>
     <fragment
         android:id="@+id/workoutFragment"
         android:name="com.example.exerwise.presentation.fragment.WorkoutFragment"
         android:label="fragment_workout"
-        tools:layout="@layout/fragment_workout" />
+        tools:layout="@layout/fragment_workout" >
+        <action
+            android:id="@+id/action_workoutFragment_to_createWorkoutFragment"
+            app:destination="@id/createWorkoutFragment" />
+        <action
+            android:id="@+id/action_workoutFragment_to_startWorkoutFragment"
+            app:destination="@id/startWorkoutFragment" />
+        <action
+            android:id="@+id/action_workoutFragment_to_editWorkoutFragment"
+            app:destination="@id/editWorkoutFragment" />
+    </fragment>
     <fragment
         android:id="@+id/createWorkoutFragment"
         android:name="com.example.exerwise.presentation.fragment.CreateWorkoutFragment"
         android:label="fragment_create_workout"
-        tools:layout="@layout/fragment_create_workout" />
+        tools:layout="@layout/fragment_create_workout" >
+        <action
+            android:id="@+id/action_createWorkoutFragment_to_exerciseListFragment"
+            app:destination="@id/exerciseListFragment" />
+    </fragment>
     <fragment
         android:id="@+id/exerciseListFragment"
-        android:name="com.example.exerwise.presentation.fragment.ExerciseListFragment"
+        android:name="com.example.exerwise.presentation.fragment.ExercisesListFragment"
         android:label="fragment_exercise_list"
-        tools:layout="@layout/fragment_exercise_list" />
+        tools:layout="@layout/fragment_exercises_list" />
     <fragment
         android:id="@+id/editWorkoutFragment"
         android:name="com.example.exerwise.presentation.fragment.EditWorkoutFragment"
         android:label="fragment_edit_workout"
-        tools:layout="@layout/fragment_edit_workout" />
+        tools:layout="@layout/fragment_edit_workout" >
+        <action
+            android:id="@+id/action_editWorkoutFragment_to_exerciseListFragment"
+            app:destination="@id/exerciseListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/startWorkoutFragment"
+        android:name="com.example.exerwise.presentation.fragment.StartWorkoutFragment"
+        android:label="fragment_start_workout"
+        tools:layout="@layout/fragment_start_workout" />
+    <fragment
+        android:id="@+id/finishedWorkoutFragment"
+        android:name="com.example.exerwise.presentation.fragment.FinishedWorkoutFragment"
+        android:label="fragment_finished_workout"
+        tools:layout="@layout/fragment_finished_workout" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.exerwise.presentation.fragment.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
 </navigation>
