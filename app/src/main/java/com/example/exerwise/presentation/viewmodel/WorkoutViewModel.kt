@@ -1,6 +1,7 @@
 package com.example.exerwise.presentation.viewmodel
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.exerwise.data.model.Workout
 import com.example.exerwise.data.repository.WorkoutRepository
@@ -8,5 +9,15 @@ import com.example.exerwise.data.repository.WorkoutRepository
 class WorkoutViewModel : ViewModel() {
     private val repository = WorkoutRepository()
 
-    val workoutList: LiveData<List<Workout>> = repository.getWorkoutList()
+    val createdWorkoutList: LiveData<List<Workout>> = repository.getCreatedWorkoutList()
+    val finishedWorkoutList: LiveData<List<Workout>> = repository.getFinishedWorkoutList()
+
+    private val _workouts = MutableLiveData<List<Workout>>()
+    val workouts: LiveData<List<Workout>> get() = _workouts
+
+    fun fetchLastSevenWorkouts() {
+        repository.getLastSevenWorkouts { workouts ->
+            _workouts.postValue(workouts)
+        }
+    }
 }

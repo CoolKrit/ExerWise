@@ -1,3 +1,4 @@
+
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -5,29 +6,33 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.exerwise.data.model.Workout
 import com.example.exerwise.databinding.ItemWorkoutBinding
-import com.example.exerwise.presentation.interfaces.WorkoutItemClickListener
 
-class WorkoutAdapter : ListAdapter<Workout, WorkoutAdapter.ViewHolder>(WorkoutDiffCallback()) {
+class WorkoutAdapter(private var optionsMenuClickListener: OptionsMenuClickListener, private val startButtonClickListener: (Workout) -> Unit) :
+    ListAdapter<Workout, WorkoutAdapter.WorkoutViewHolder>(WorkoutDiffCallback()) {
 
-    private var itemClickListener: WorkoutItemClickListener? = null
+    interface OptionsMenuClickListener {
+        fun onOptionsMenuClicked(position: Int, workout: Workout)
+    }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WorkoutViewHolder {
         val binding = ItemWorkoutBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return ViewHolder(binding)
+        return WorkoutViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val workout = getItem(position)
-        holder.bind(workout)
-
-        holder.itemView.setOnClickListener {
-            itemClickListener?.onWorkoutItemClick(workout)
-        }
+    override fun onBindViewHolder(holder: WorkoutViewHolder, position: Int) {
+        holder.bind(getItem(position))
     }
 
-    class ViewHolder(private val binding: ItemWorkoutBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class WorkoutViewHolder(private val binding: ItemWorkoutBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(workout: Workout) {
-            binding.workoutTitle.text = workout.name
+            binding.workoutName.text = workout.name
+            binding.workoutMoreMenu.setOnClickListener {
+                optionsMenuClickListener.onOptionsMenuClicked(position, workout)
+            }
+            binding.workoutStart.setOnClickListener {
+                startButtonClickListener(workout)
+            }
         }
     }
 
@@ -39,9 +44,5 @@ class WorkoutAdapter : ListAdapter<Workout, WorkoutAdapter.ViewHolder>(WorkoutDi
         override fun areContentsTheSame(oldItem: Workout, newItem: Workout): Boolean {
             return oldItem == newItem
         }
-    }
-
-    fun setItemClickListener(listener: WorkoutItemClickListener) {
-        itemClickListener = listener
     }
 }

@@ -9,34 +9,29 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.exerwise.R
 import com.example.exerwise.data.model.Exercise
 import com.example.exerwise.data.model.Workout
-import com.example.exerwise.databinding.FragmentEditWorkoutBinding
-import com.example.exerwise.presentation.adapter.CreateWorkoutAdapter
+import com.example.exerwise.databinding.FragmentFinishedWorkoutBinding
+import com.example.exerwise.presentation.adapter.FinishedWorkoutAdapterT
 import com.example.exerwise.presentation.viewmodel.CreateWorkoutViewModel
-import com.example.exerwise.presentation.viewmodel.SharedViewModel
 
-class EditWorkoutFragment : Fragment() {
+class FinishedWorkoutFragment : Fragment() {
 
-    private var _binding: FragmentEditWorkoutBinding? = null
+    private var _binding: FragmentFinishedWorkoutBinding? = null
     private val binding get() = _binding!!
 
     private val viewModel: CreateWorkoutViewModel by viewModels()
-    private val sharedViewModel: SharedViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentEditWorkoutBinding.inflate(inflater, container, false)
+        _binding = FragmentFinishedWorkoutBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -48,51 +43,26 @@ class EditWorkoutFragment : Fragment() {
             viewModel.setWorkout(workout)
         }
 
-        binding.workoutName.setText(viewModel.workoutName)
-
-        val recyclerView = binding.exercisesRV
-        val adapter = CreateWorkoutAdapter(viewModel) {
+        val recyclerView = binding.recyclerViewExercises
+        val adapter = FinishedWorkoutAdapterT(viewModel) {
             showDialogFragment(it)
         }
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = adapter
 
-        binding.closeEditWorkout.setOnClickListener {
-            findNavController().popBackStack()
-        }
+        binding.textViewDuration.text = viewModel.workout.value!!.duration
+        binding.textViewTotalWeight.text = viewModel.workout.value!!.volume
+        binding.textViewTotalSets.text = viewModel.workout.value!!.sets
 
-        // Observe added exercises
         viewModel.exercises.observe(viewLifecycleOwner) { exercises ->
             if (exercises != null) {
                 adapter.submitList(exercises)
-            }
-        }
-
-        // Observe selected exercise
-        sharedViewModel.selectedExercise.observe(viewLifecycleOwner) { exercise ->
-            if (exercise != null) {
-                viewModel.addExercise(exercise.toDomainModel())
-            }
-        }
-
-        // Add exercise button
-        binding.addExerciseButton.setOnClickListener {
-            findNavController().navigate(R.id.action_editWorkoutFragment_to_exerciseListFragment)
-        }
-
-        binding.saveEditWorkout.setOnClickListener {
-            viewModel.workoutName = binding.workoutName.text.toString()
-            if (viewModel.workoutName.isNotEmpty()) {
-                viewModel.saveWorkout()
-            } else {
-                Toast.makeText(requireContext(), "Please enter workout name", Toast.LENGTH_SHORT).show()
             }
         }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        sharedViewModel.clearData()
         _binding = null
     }
 
@@ -111,9 +81,8 @@ class EditWorkoutFragment : Fragment() {
         dialogBinding.findViewById<TextView>(R.id.textViewTarget).text = "Target muscle: ${exercise.target}"
         dialogBinding.findViewById<TextView>(R.id.textViewEquipment).text = "Equipment: ${exercise.equipment}"
         var instructions = ""
-        var index = 1
         exercise.instructions.forEach { i ->
-            instructions += if (i == exercise.instructions.last()) "${index++}. " + i else "${index++}. " + i + "\n"
+            instructions += if (i == exercise.instructions.last()) i else i + "\n"
         }
         dialogBinding.findViewById<TextView>(R.id.textViewInstructions).text = instructions
     }

@@ -6,16 +6,15 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.exerwise.data.model.Exercise
-import com.example.exerwise.data.model.Set
-import com.example.exerwise.databinding.ItemExerciseBinding
+import com.example.exerwise.databinding.ItemExerciseFinishedWorkoutBinding
 import com.example.exerwise.presentation.viewmodel.CreateWorkoutViewModel
 
-class CreateWorkoutAdapter(private val viewModel: CreateWorkoutViewModel, private val onExerciseClick: (Exercise) -> Unit) : RecyclerView.Adapter<CreateWorkoutAdapter.ExerciseViewHolder>() {
+class FinishedWorkoutAdapterT(private val viewModel: CreateWorkoutViewModel, private val onExerciseClick: (Exercise) -> Unit) : RecyclerView.Adapter<FinishedWorkoutAdapterT.ExerciseViewHolder>() {
 
     private val exercises = mutableListOf<Exercise>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ExerciseViewHolder {
-        val binding = ItemExerciseBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = ItemExerciseFinishedWorkoutBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ExerciseViewHolder(binding, viewModel)
     }
 
@@ -32,7 +31,7 @@ class CreateWorkoutAdapter(private val viewModel: CreateWorkoutViewModel, privat
     }
 
     inner class ExerciseViewHolder(
-        private val binding: ItemExerciseBinding,
+        private val binding: ItemExerciseFinishedWorkoutBinding,
         private val viewModel: CreateWorkoutViewModel
     ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(exercise: Exercise) {
@@ -42,20 +41,11 @@ class CreateWorkoutAdapter(private val viewModel: CreateWorkoutViewModel, privat
             Glide.with(binding.exerciseIV.context)
                 .load(exercise.gifUrl)
                 .into(binding.exerciseIV)
-            binding.exerciseDeleteButton.setOnClickListener {
-                exercises.remove(exercise)
-                notifyDataSetChanged()
-            }
 
-            val setsAdapter = SetsAdapter(exercise, viewModel)
+            val setsAdapter = FinishedSetsAdapter()
             binding.exerciseSetsRV.layoutManager = LinearLayoutManager(binding.root.context)
             binding.exerciseSetsRV.adapter = setsAdapter
             setsAdapter.submitList(exercise.exerciseSetsList)
-            binding.exerciseAddSet.setOnClickListener {
-                val exercise = binding.root.tag as Exercise
-                val newSet = Set(setsAdapter.currentList.size + 1, 0.0, 0)
-                viewModel.addSet(exercise.id, newSet)
-            }
 
             binding.exerciseIV.setOnClickListener { onExerciseClick(exercise) }
         }

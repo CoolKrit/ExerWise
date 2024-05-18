@@ -5,7 +5,12 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Workout(
-    val id: String = "",
-    val name: String = "",
-    val exercises: MutableList<Exercise> = mutableListOf()
-) : Parcelable
+    var id: String,
+    var name: String,
+    var duration: String,
+    var volume: String,
+    var sets: String,
+    var exercises: MutableList<Exercise>
+) : Parcelable {
+    constructor() : this("", "", "", "", "", mutableListOf())
+}

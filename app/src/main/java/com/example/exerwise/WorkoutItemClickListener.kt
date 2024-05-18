@@ -1,4 +1,4 @@
-package com.example.exerwise.presentation.interfaces
+package com.example.exerwise
 
 import com.example.exerwise.data.model.Workout
 

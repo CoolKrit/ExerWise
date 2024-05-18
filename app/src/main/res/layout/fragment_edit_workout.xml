@@ -17,7 +17,7 @@
             android:layout_width="@dimen/dimen_32"
             android:layout_height="@dimen/dimen_32"
             android:layout_gravity="start"
-            android:background="#00FFFFFF"
+            android:background="@android:color/transparent"
             android:scaleType="fitXY"
             android:src="@drawable/ic_baseline_close"
             app:tint="?attr/colorPrimary" />
@@ -25,7 +25,7 @@
         <TextView
             style="@style/LargeTextViewStyle"
             android:layout_gravity="center"
-            android:text="Edit Workout" />
+            android:text="@string/edit_workout" />
 
         <ImageButton
             android:id="@+id/saveEditWorkout"
@@ -33,7 +33,7 @@
             android:layout_height="@dimen/dimen_32"
             android:layout_gravity="end"
             android:layout_marginEnd="@dimen/dimen_16"
-            android:background="#00FFFFFF"
+            android:background="@android:color/transparent"
             android:scaleType="fitXY"
             android:src="@drawable/ic_baseline_check"
             app:tint="?attr/colorPrimary" />
@@ -53,19 +53,18 @@
             android:paddingBottom="@dimen/dimen_16">
 
             <EditText
-                android:id="@+id/workoutTitle"
+                android:id="@+id/workoutName"
                 style="@style/MediumTextViewStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/workout_title"
-                android:textColorHint="?attr/colorOnSurfaceVariant" />
+                android:hint="@string/workout_title" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/exercisesRV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:nestedScrollingEnabled="false"
-                tools:listitem="@layout/item_exercise_workout" />
+                tools:listitem="@layout/item_exercise" />
 
             <Button
                 android:id="@+id/addExerciseButton"

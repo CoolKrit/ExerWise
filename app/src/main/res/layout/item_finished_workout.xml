@@ -23,7 +23,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/workoutName"
             style="@style/MediumTextViewStyle"
             android:padding="@dimen/dimen_16"
             android:text="Chest and shoulders"

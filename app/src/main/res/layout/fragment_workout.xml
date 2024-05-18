@@ -28,7 +28,7 @@
             <TextView
                 style="@style/MediumTextViewStyle"
                 android:layout_gravity="center"
-                android:text="New Workout" />
+                android:text="@string/new_workout" />
 
             <TextView
                 style="@style/SmallTextViewStyle"
@@ -46,7 +46,7 @@
 
             <TextView
                 style="@style/MediumTextViewStyle"
-                android:text="Your Workouts" />
+                android:text="@string/your_workouts" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/workoutsRV"
