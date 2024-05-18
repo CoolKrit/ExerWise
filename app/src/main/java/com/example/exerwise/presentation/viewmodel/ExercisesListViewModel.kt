@@ -46,14 +46,12 @@ class ExercisesListViewModel(application: Application) : AndroidViewModel(applic
             loadLocalExercisesFiltered(name, bodyPart, equipment)
         }
     }
-
     private suspend fun loadLocalExercises() {
         val localExercises = repository.getAllLocalExercises()
         _exercises.postValue(localExercises.map {
             ExerciseResponse(it.id, it.name, it.bodyPart, it.equipment, it.target, it.gifUrl, it.instructions)
         })
     }
-
     private suspend fun loadLocalExercisesFiltered(name: String, bodyPart: String, equipment: String) {
         val localExercises = repository.getLocalExercisesFiltered(name, bodyPart, equipment)
         _exercises.postValue(localExercises.map {

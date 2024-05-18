@@ -12,16 +12,4 @@ data class ExerciseEntity(
     val target: String,
     val gifUrl: String,
     val instructions: List<String>
-) {
-    fun toDomainModel(): ExerciseResponse {
-        return ExerciseResponse(
-            id = id,
-            name = name,
-            bodyPart = bodyPart,
-            equipment = equipment,
-            target = target,
-            gifUrl = gifUrl,
-            instructions = instructions,
-        )
-    }
-}
+)
