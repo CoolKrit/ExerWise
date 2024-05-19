@@ -46,6 +46,7 @@ class ExercisesListFragment : Fragment() {
                 sharedViewModel.selectExercise(exercise)
                 findNavController().navigateUp()
             }
+            binding.noResultsText.visibility = if (exercises.isEmpty()) View.VISIBLE else View.GONE
         }
 
         viewModel.error.observe(viewLifecycleOwner) { error ->

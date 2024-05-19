@@ -7,6 +7,8 @@ import com.example.exerwise.data.model.Workout
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
 class WorkoutRepository {
     private val firebaseAuth = FirebaseAuth.getInstance()
@@ -79,5 +81,15 @@ class WorkoutRepository {
             .addOnFailureListener { exception ->
                 Log.e("WorkoutRepository", "Error getting documents: ", exception)
             }
+    }
+
+    suspend fun deleteWorkout(workoutId: String) {
+        withContext(Dispatchers.IO) {
+            try {
+                createdWorkoutsCollection.document(workoutId).delete()
+            } catch (e: Exception) {
+                // обработка ошибки
+            }
+        }
     }
 }

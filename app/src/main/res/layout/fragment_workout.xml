@@ -48,6 +48,17 @@
                 style="@style/MediumTextViewStyle"
                 android:text="@string/your_workouts" />
 
+            <TextView
+                android:id="@+id/noWorkoutsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_16"
+                android:text="No workouts yet"
+                android:visibility="gone"
+                android:layout_gravity="center"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/workoutsRV"
                 android:layout_width="match_parent"

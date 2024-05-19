@@ -115,8 +115,9 @@ class StartWorkoutFragment : Fragment() {
         dialogBinding.findViewById<TextView>(R.id.textViewTarget).text = "Target muscle: ${exercise.target}"
         dialogBinding.findViewById<TextView>(R.id.textViewEquipment).text = "Equipment: ${exercise.equipment}"
         var instructions = ""
+        var index = 1
         exercise.instructions.forEach { i ->
-            instructions += if (i == exercise.instructions.last()) i else i + "\n"
+            instructions += if (i == exercise.instructions.last()) "${index++}. " + i else "${index++}. " + i + "\n"
         }
         dialogBinding.findViewById<TextView>(R.id.textViewInstructions).text = instructions
     }

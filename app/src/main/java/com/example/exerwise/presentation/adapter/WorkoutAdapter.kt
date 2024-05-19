@@ -6,6 +6,8 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.exerwise.data.model.Workout
 import com.example.exerwise.databinding.ItemWorkoutBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 class WorkoutAdapter(private var optionsMenuClickListener: OptionsMenuClickListener, private val startButtonClickListener: (Workout) -> Unit) :
     ListAdapter<Workout, WorkoutAdapter.WorkoutViewHolder>(WorkoutDiffCallback()) {

@@ -13,12 +13,15 @@ import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.exerwise.R
 import com.example.exerwise.data.model.Workout
 import com.example.exerwise.databinding.FragmentWorkoutBinding
 import com.example.exerwise.presentation.viewmodel.WorkoutViewModel
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 class WorkoutFragment : Fragment() {
     private var _binding: FragmentWorkoutBinding? = null
@@ -44,8 +47,8 @@ class WorkoutFragment : Fragment() {
         setupRecyclerView()
 
         binding.createWorkout.setOnClickListener {
-            //val navOptions = NavOptions.Builder().setPopUpTo(R.id.workoutFragment, true).build()
-            findNavController().navigate(R.id.action_workoutFragment_to_createWorkoutFragment)
+            val navOptions = NavOptions.Builder().setPopUpTo(R.id.workoutFragment, true).build()
+            findNavController().navigate(R.id.action_workoutFragment_to_createWorkoutFragment, null, navOptions)
         }
     }
 
@@ -64,12 +67,13 @@ class WorkoutFragment : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = adapter
 
-        observeTrainings(adapter)
+        observeWorkouts(adapter)
     }
 
-    private fun observeTrainings(adapter: WorkoutAdapter) {
+    private fun observeWorkouts(adapter: WorkoutAdapter) {
         viewModel.createdWorkoutList.observe(viewLifecycleOwner, Observer { workouts ->
             adapter.submitList(workouts)
+            binding.noWorkoutsText.visibility = if (workouts.isEmpty()) View.VISIBLE else View.GONE
         })
     }
 
@@ -88,8 +92,7 @@ class WorkoutFragment : Fragment() {
                     }
 
                     R.id.deleteButton -> {
-                        Toast.makeText(requireContext(), "Item 2 clicked", Toast.LENGTH_SHORT)
-                            .show()
+                        viewModel.deleteWorkout(workout.id)
                         return true
                     }
                 }
