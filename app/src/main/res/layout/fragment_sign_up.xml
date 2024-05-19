@@ -51,71 +51,19 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/dimen_8" />
 
-        <LinearLayout
+        <Button
+            android:id="@+id/signUp"
+            style="@style/ButtonStyle"
+            android:layout_marginTop="@dimen/dimen_32"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <Button
-                android:id="@+id/signUp"
-                style="@style/ButtonStyle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/dimen_32"
-                android:text="@string/sign_up" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/dimen_32"
-                android:orientation="horizontal"
-                android:paddingStart="@dimen/dimen_48"
-                android:paddingEnd="@dimen/dimen_48">
-
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="1dp"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:background="?attr/colorOnSurfaceVariant" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/dimen_8"
-                    android:layout_marginEnd="@dimen/dimen_8"
-                    android:layout_weight="0"
-                    android:gravity="center"
-                    android:text="@string/or" />
-
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="1dp"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:background="?attr/colorOnSurfaceVariant" />
-
-            </LinearLayout>
-
-            <Button
-                style="@style/ButtonStyle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/dimen_16"
-                android:backgroundTint="?attr/colorOnSurface"
-                android:text="@string/sign_up_with_google"
-                app:icon="@drawable/ic_google"
-                app:iconGravity="textStart" />
-
-        </LinearLayout>
+            android:layout_height="wrap_content"
+            android:text="@string/sign_up" />
 
         <LinearLayout
             android:id="@+id/signInTextView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:gravity="center|bottom"
             android:orientation="horizontal">
 

@@ -10,10 +10,9 @@ import com.example.exerwise.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
-    val navController by lazy {
+    private val navController by lazy {
         (supportFragmentManager.findFragmentById(R.id.mainFragmentContainer) as NavHostFragment).navController
     }
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,37 +20,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.bottomNavigationView.setupWithNavController(navController)
-
-        /*replaceFragment(HomeFragment())
-
-        binding.bottomNavigationView.setOnItemSelectedListener {
-            when (it.itemId) {
-                R.id.homeFragment -> replaceFragment(HomeFragment())
-                R.id.workoutFragment -> replaceFragment(WorkoutFragment())
-                else -> {}
-            }
-            true
-        }*/
     }
 
-    override fun onStart() {
-        super.onStart()
-        /*val sharedPreferences = getSharedPreferences(
-            "ItemListSharedPreferences",
-            Context.MODE_PRIVATE
-        )
-        val editor = sharedPreferences.edit()
-        editor.clear()
-        editor.apply()
-        val navController = findNavController(binding.mainFragmentContainer.id)
-        binding.bottomNavigationView.setupWithNavController(navController)*/
-    }
+    companion object {
+        const val THEME_PREFERENCES = "ThemePrefs"
 
-    override fun onStop() {
-        super.onStop()
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
+        const val DARK_THEME_ENABLED_KEY = "isDarkThemeEnabled"
     }
 }

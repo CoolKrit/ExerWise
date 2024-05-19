@@ -15,12 +15,13 @@
         <TextView
             android:id="@+id/userName"
             style="@style/LargeTextViewStyle"
-            android:text="Amir"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            android:text="Amir" />
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:orientation="vertical">
 
             <TextView
@@ -38,12 +39,30 @@
 
         </LinearLayout>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dark theme" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/darkThemeSwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
     </LinearLayout>
 
     <com.github.mikephil.charting.charts.BarChart
         android:id="@+id/chart"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_centerInParent="true"/>
+        android:layout_height="0dp"
+        android:layout_marginBottom="@dimen/dimen_16"
+        android:layout_weight="1" />
+
+    <Button
+        android:id="@+id/logoutButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="?attr/colorError"
+        android:text="Logout" />
 
 </LinearLayout>

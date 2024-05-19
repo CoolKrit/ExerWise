@@ -66,5 +66,14 @@
         android:id="@+id/profileFragment"
         android:name="com.example.exerwise.presentation.fragment.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_signInUpActivity"
+            app:destination="@id/signInUpActivity" />
+    </fragment>
+    <activity
+        android:id="@+id/signInUpActivity"
+        android:name="com.example.exerwise.presentation.activity.SignInUpActivity"
+        android:label="activity_sign_in_up"
+        tools:layout="@layout/activity_sign_in_up" />
 </navigation>

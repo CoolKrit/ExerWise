@@ -1,14 +1,21 @@
 package com.example.exerwise.presentation.fragment
 
+import android.content.Context
 import android.os.Bundle
+import android.text.SpannableString
+import android.text.SpannableStringBuilder
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
+import com.example.exerwise.App
 import com.example.exerwise.R
 import com.example.exerwise.databinding.FragmentProfileBinding
+import com.example.exerwise.presentation.activity.MainActivity.Companion.DARK_THEME_ENABLED_KEY
+import com.example.exerwise.presentation.activity.MainActivity.Companion.THEME_PREFERENCES
 import com.example.exerwise.presentation.viewmodel.WorkoutViewModel
 import com.github.mikephil.charting.charts.BarChart
 import com.github.mikephil.charting.components.XAxis
@@ -40,13 +47,21 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        FirebaseFirestore.getInstance().collection("users").document(FirebaseAuth.getInstance().currentUser!!.uid)
+        val sharedPreferences =
+            requireActivity().getSharedPreferences(THEME_PREFERENCES, Context.MODE_PRIVATE)
+        val isDarkThemeEnabled = sharedPreferences.getBoolean(DARK_THEME_ENABLED_KEY, false)
+
+        binding.darkThemeSwitch.isChecked = isDarkThemeEnabled
+
+        FirebaseFirestore.getInstance().collection("users")
+            .document(FirebaseAuth.getInstance().currentUser!!.uid)
             .collection("finishedWorkouts").get().addOnSuccessListener {
                 val count = it.size()
                 binding.workoutsTV.text = count.toString()
             }
 
-        FirebaseFirestore.getInstance().collection("users").document(FirebaseAuth.getInstance().currentUser!!.uid)
+        FirebaseFirestore.getInstance().collection("users")
+            .document(FirebaseAuth.getInstance().currentUser!!.uid)
             .get().addOnSuccessListener {
                 val name = it.get("name")
                 binding.userName.text = name.toString()
@@ -66,17 +81,30 @@ class ProfileFragment : Fragment() {
 
             val dataSet = BarDataSet(entries, "Workout Duration")
             dataSet.color = resources.getColor(R.color.md_theme_primary)
+            dataSet.valueTextColor = resources.getColor(R.color.md_theme_onSurface)
             val barData = BarData(dataSet)
 
             chart.data = barData
+            chart.setBorderColor(R.color.md_theme_onSurface)
 
             chart.xAxis.valueFormatter = IndexAxisValueFormatter(labels)
             chart.xAxis.position = XAxis.XAxisPosition.BOTTOM
+            chart.xAxis.textColor = resources.getColor(R.color.md_theme_onSurface)
+            chart.axisLeft.textColor = resources.getColor(R.color.md_theme_onSurface)
             chart.axisRight.isEnabled = false
             chart.description.isEnabled = false
 
             chart.invalidate()
         })
+
+        binding.darkThemeSwitch.setOnCheckedChangeListener { _, isChecked ->
+            sharedPreferences.edit().putBoolean(DARK_THEME_ENABLED_KEY, isChecked).apply()
+            (binding.root.context.applicationContext as App).applyTheme(isChecked)
+        }
+
+        binding.logoutButton.setOnClickListener {
+            findNavController().navigate(R.id.action_profileFragment_to_signInUpActivity)
+        }
 
         viewModel.fetchLastSevenWorkouts()
     }

@@ -1,0 +1,467 @@
+@startuml
+class com.example.exerwise.data.model.Set {
+}
+class com.example.exerwise.data.repository.ExercisesListRepository {
+- ApiService api
+- ExerciseDao exerciseDao
++ Response<List<ExerciseResponse>> getExercises()
++ Response<List<ExerciseResponse>> getExercisesByName(String)
++ List<ExerciseEntity> getAllLocalExercises()
++ List<ExerciseEntity> getLocalExercisesByName(String)
++ List<ExerciseEntity> getLocalExercisesFiltered(String,String,String)
++ void insertAllExercises(List<ExerciseEntity>)
++ void deleteAllExercises()
+}
+
+
+interface com.example.exerwise.data.db.ExerciseDao {
++ List<ExerciseEntity> getAllExercises()
++ List<ExerciseEntity> getExercisesByName(String)
++ List<ExerciseEntity> getExercisesFiltered(String,String,String)
++ void insertAll(List<ExerciseEntity>)
++ void deleteAll()
+}
+
+class com.example.exerwise.presentation.fragment.SignInFragment {
+- FragmentSignInBinding? _binding
+-  binding
+- SignInViewModel signInViewModel
++ void onCreate(Bundle?)
++ View onCreateView(void,LayoutInflater,ViewGroup?,void,Bundle?,void)
++ void onViewCreated(View,Bundle?)
++ void onViewStateRestored(Bundle?)
++ void onStart()
++ void onResume()
++ void onPause()
++ void onStop()
++ void onSaveInstanceState(Bundle)
++ void onDestroyView()
++ void onDestroy()
+}
+
+
+interface com.example.exerwise.WorkoutItemClickListener {
++ void onWorkoutItemClick(Workout)
+}
+
+class com.example.exerwise.presentation.fragment.WorkoutFragment {
+- FragmentWorkoutBinding? _binding
+-  binding
+- WorkoutViewModel viewModel
++ void onCreate(Bundle?)
++ View? onCreateView(void,LayoutInflater,ViewGroup?,void,Bundle?,void)
++ void onViewCreated(View,Bundle?)
+- void setupRecyclerView()
+- void observeWorkouts(WorkoutAdapter)
+- void performOptionsMenuClick(Int,Workout)
+}
+
+
+class com.example.exerwise.presentation.fragment.SignUpFragment {
+- FragmentSignUpBinding? _binding
+-  binding
+- SignUpViewModel signUpViewModel
++ void onCreate(Bundle?)
++ View onCreateView(void,LayoutInflater,ViewGroup?,void,Bundle?,void)
++ void onViewCreated(View,Bundle?)
++ void onViewStateRestored(Bundle?)
++ void onStart()
++ void onPause()
++ void onStop()
++ void onSaveInstanceState(Bundle)
++ void onDestroyView()
++ void onDestroy()
+}
+
+
+class com.example.exerwise.presentation.adapter.CreateWorkoutAdapter$ExerciseViewHolder {
+}
+class com.example.exerwise.presentation.adapter.CreateWorkoutAdapter {
+-  exercises
++ ExerciseViewHolder onCreateViewHolder(ViewGroup,Int)
++ void onBindViewHolder(ExerciseViewHolder,Int)
++ Int getItemCount()
++ void submitList(List<Exercise>)
++ void null()
+}
+
+
+class com.example.exerwise.presentation.activity.SignInUpActivity {
++ void onCreate(Bundle?)
+}
+
+class com.example.exerwise.presentation.activity.MainActivity {
+- ActivityMainBinding binding
++  navController
++ void onCreate(Bundle?)
++ void onStart()
++ void onStop()
++ void onDestroy()
+}
+
+
+class com.example.exerwise.presentation.fragment.HomeFragment {
+- FragmentHomeBinding? _binding
+-  binding
+- WorkoutViewModel viewModel
++ void onCreateView(void,LayoutInflater,ViewGroup?,void,Bundle?)
++ void null()
++ void onViewCreated(View,Bundle?)
+}
+
+
+class com.example.exerwise.data.model.Workout {
+}
+class com.example.exerwise.data.repository.WorkoutRepository {
+-  firebaseAuth
+-  firebaseStore
+-  createdWorkoutsCollection
+-  finishedWorkoutsCollection
++ LiveData<List<Workout>> getCreatedWorkoutList()
++ LiveData<List<Workout>> getFinishedWorkoutList()
++ void getLastSevenWorkouts((List<Workout>) -> Unit)
++ void deleteWorkout(String)
+}
+
+
+class com.example.exerwise.presentation.fragment.ExercisesListFragment {
+- FragmentExercisesListBinding? _binding
+-  binding
+- ExercisesListViewModel viewModel
+- SharedViewModel sharedViewModel
++ void onCreateView(void,LayoutInflater,ViewGroup?,void,Bundle?)
++ void null()
++ void onViewCreated(View,Bundle?)
++ void onDestroyView()
+- void setupSpinners()
+- void filterExercises()
+}
+
+
+class com.example.exerwise.presentation.viewmodel.WorkoutViewModel {
+-  repository
++ LiveData<List<Workout>> createdWorkoutList
++ LiveData<List<Workout>> finishedWorkoutList
+-  _workouts
++ LiveData<List<Workout>> workouts
++ void deleteWorkout(String)
++ void fetchLastSevenWorkouts()
+}
+
+
+class com.example.exerwise.presentation.viewmodel.SharedViewModel {
+-  _selectedExercise
++ LiveData<ExerciseResponse?> selectedExercise
++ void selectExercise(ExerciseResponse)
++ void clearData()
+}
+
+
+class com.example.exerwise.presentation.viewmodel.SignInViewModel {
++ LiveData<Boolean> signInUser(String,String)
+- Boolean validateData(String,String)
+}
+
+interface com.example.exerwise.data.api.ApiService {
++ Response<List<ExerciseResponse>> getExercises()
++ Response<List<ExerciseResponse>> getExercisesByName(String)
+}
+
+class com.example.exerwise.presentation.adapter.StartWorkoutAdapter$ExerciseViewHolder {
+}
+class com.example.exerwise.presentation.adapter.StartWorkoutAdapter {
+-  exercises
++ ExerciseViewHolder onCreateViewHolder(ViewGroup,Int)
++ void onBindViewHolder(ExerciseViewHolder,Int)
++ Int getItemCount()
++ void submitList(List<Exercise>)
++ void null()
+}
+
+
+class com.example.exerwise.presentation.ArcProgressBar {
+}
+class com.example.exerwise.data.model.Exercise {
+}
+class com.example.exerwise.utils.FirebaseUtils {
+-  firebaseAuth
+-  db
++ void createWorkout(Workout)
++ void finishWorkout(Workout)
+}
+
+
+class com.example.exerwise.presentation.adapter.SetsAdapter$SetViewHolder {
+- TextWatcher? weightTextWatcher
+- TextWatcher? repsTextWatcher
++ void bind(Set)
+}
+
+
+class com.example.exerwise.presentation.adapter.SetsAdapter$SetDiffCallback {
++ Boolean areItemsTheSame(Set,Set)
++ Boolean areContentsTheSame(Set,Set)
+}
+
+class com.example.exerwise.presentation.adapter.SetsAdapter {
++ SetViewHolder onCreateViewHolder(ViewGroup,Int)
++ void onBindViewHolder(SetViewHolder,Int)
+}
+
+class com.example.exerwise.presentation.fragment.ProfileFragment {
+- FragmentProfileBinding? _binding
+-  binding
+- WorkoutViewModel viewModel
++ void onCreateView(void,LayoutInflater,ViewGroup?,void,Bundle?)
++ void null()
++ void onViewCreated(View,Bundle?)
+- Long parseDuration(String)
+- String formatDate(String)
+}
+
+
+class com.example.exerwise.data.model.ExerciseEntity {
+}
+class com.example.exerwise.presentation.viewmodel.ExercisesListViewModel {
+-  repository
+-  _exercises
++ LiveData<List<ExerciseResponse>> exercises
+-  _error
++ LiveData<String> error
++ void fetchExercises()
++ void fetchExercisesFiltered(String,String,String)
+- void loadLocalExercises()
+- void loadLocalExercisesFiltered(String,String,String)
+}
+
+
+class com.example.exerwise.data.db.AppDatabase$Companion {
+- AppDatabase? INSTANCE
++ AppDatabase getDatabase(Context)
+}
+
+
+abstract class com.example.exerwise.data.db.AppDatabase {
++ ExerciseDao exerciseDao()
+}
+
+class com.example.exerwise.presentation.adapter.ExercisesListAdapter$ExerciseViewHolder {
++ void bind(ExerciseResponse)
+}
+
+class com.example.exerwise.presentation.adapter.ExercisesListAdapter {
++ ExerciseViewHolder onCreateViewHolder(ViewGroup,Int)
++ void onBindViewHolder(ExerciseViewHolder,Int)
++ Int getItemCount()
+}
+
+class com.example.exerwise.presentation.fragment.CreateWorkoutFragment {
+- FragmentCreateWorkoutBinding? _binding
+-  binding
+- CreateWorkoutViewModel viewModel
+- SharedViewModel sharedViewModel
++ void onCreateView(void,LayoutInflater,ViewGroup?,void,Bundle?)
++ void null()
++ void onViewCreated(View,Bundle?)
++ void onDestroyView()
+- void showDialogFragment(Exercise)
+- void saveWorkoutToFirebase(Workout)
+}
+
+
+class com.example.exerwise.presentation.adapter.FinishedWorkoutAdapterT$ExerciseViewHolder {
+}
+class com.example.exerwise.presentation.adapter.FinishedWorkoutAdapterT {
+-  exercises
++ ExerciseViewHolder onCreateViewHolder(ViewGroup,Int)
++ void onBindViewHolder(ExerciseViewHolder,Int)
++ Int getItemCount()
++ void submitList(List<Exercise>)
++ void null()
+}
+
+
+class WorkoutAdapter {
+}
+interface OptionsMenuClickListener {
++ void onOptionsMenuClicked(Int,Workout)
+}
+
+class WorkoutViewHolder {
+}
+class WorkoutDiffCallback {
++ Boolean areItemsTheSame(Workout,Workout)
++ Boolean areContentsTheSame(Workout,Workout)
+}
+
+class com.example.exerwise.presentation.fragment.FinishedWorkoutFragment {
+- FragmentFinishedWorkoutBinding? _binding
+-  binding
+- CreateWorkoutViewModel viewModel
++ void onCreateView(void,LayoutInflater,ViewGroup?,void,Bundle?)
++ void null()
++ void onViewCreated(View,Bundle?)
++ void onDestroyView()
+- void showDialogFragment(Exercise)
+}
+
+
+class com.example.exerwise.data.repository.AuthRepository {
+-  firebaseAuth
+-  firebaseStore
++ void signUpUser(String,String,String,(Boolean) -> Unit)
++ void signInUser(String,String,(Boolean) -> Unit)
+}
+
+
+class com.example.exerwise.presentation.viewmodel.CreateWorkoutViewModel {
+-  _workout
++ LiveData<Workout> workout
+- String workoutId
++ String workoutName
+-  _exercises
++ LiveData<MutableList<Exercise>?> exercises
++ void setWorkout(Workout)
++ void addExercise(Exercise)
++ void addSet(Int,Set)
++ void removeSet(Int,Int)
++ void saveWorkout()
+}
+
+
+class com.example.exerwise.presentation.WeekdayIndicatorView {
+}
+class com.example.exerwise.presentation.fragment.EditWorkoutFragment {
+- FragmentEditWorkoutBinding? _binding
+-  binding
+- CreateWorkoutViewModel viewModel
+- SharedViewModel sharedViewModel
++ void onCreateView(void,LayoutInflater,ViewGroup?,void,Bundle?)
++ void null()
++ void onViewCreated(View,Bundle?)
++ void onDestroyView()
+- void showDialogFragment(Exercise)
+}
+
+
+class com.example.exerwise.presentation.fragment.StartWorkoutFragment {
+- FragmentStartWorkoutBinding? _binding
+-  binding
+- CreateWorkoutViewModel viewModel
+-  startTime
+- Handler handler
+- Runnable runnable
++ void onCreateView(void,LayoutInflater,ViewGroup?,void,Bundle?)
++ void null()
++ void onViewCreated(View,Bundle?)
++ void onDestroyView()
+- void showDialogFragment(Exercise)
+- void startTimer()
+- void stopTimer()
+- void saveWorkoutToFirebase(Workout)
+}
+
+
+class com.example.exerwise.data.api.RetrofitInstance {
+-  BASE_URL
++ ApiService api
+}
+
+class com.example.exerwise.presentation.adapter.FinishedSetsAdapter$SetViewHolder {
++ void bind(Set)
+}
+
+class com.example.exerwise.presentation.adapter.FinishedSetsAdapter$SetDiffCallback {
++ Boolean areItemsTheSame(Set,Set)
++ Boolean areContentsTheSame(Set,Set)
+}
+
+class com.example.exerwise.presentation.adapter.FinishedSetsAdapter {
++ SetViewHolder onCreateViewHolder(ViewGroup,Int)
++ void onBindViewHolder(SetViewHolder,Int)
+}
+
+class com.example.exerwise.data.model.ExerciseResponse {
+}
+class com.example.exerwise.data.db.Converters {
++ List<String> fromString(String)
++ String fromList(List<String>)
+}
+
+class com.example.exerwise.presentation.adapter.FinishedWorkoutAdapter$ViewHolder {
++ void bind(Workout)
+}
+
+class com.example.exerwise.presentation.adapter.FinishedWorkoutAdapter$FinishedWorkoutDiffCallback {
++ Boolean areItemsTheSame(Workout,Workout)
++ Boolean areContentsTheSame(Workout,Workout)
+}
+
+class com.example.exerwise.presentation.adapter.FinishedWorkoutAdapter {
+- WorkoutItemClickListener? itemClickListener
++ ViewHolder onCreateViewHolder(ViewGroup,Int)
++ void onBindViewHolder(ViewHolder,Int)
++ void setItemClickListener(WorkoutItemClickListener)
+}
+
+
+class com.example.exerwise.presentation.viewmodel.ViewModelFactory {
++ T create(Class<T>)
+}
+
+class com.example.exerwise.presentation.viewmodel.SignUpViewModel {
++ LiveData<Boolean> signUpUser(String,String,String)
+- Boolean validateData(String,String,String)
+}
+
+
+
+androidx.fragment.app.Fragment <|-- com.example.exerwise.presentation.fragment.SignInFragment
+androidx.fragment.app.Fragment <|-- com.example.exerwise.presentation.fragment.WorkoutFragment
+androidx.fragment.app.Fragment <|-- com.example.exerwise.presentation.fragment.SignUpFragment
+com.example.exerwise.presentation.adapter.CreateWorkoutAdapter +.. com.example.exerwise.presentation.adapter.CreateWorkoutAdapter$ExerciseViewHolder
+com.example.exerwise.presentation.adapter.Adapter <|-- com.example.exerwise.presentation.adapter.CreateWorkoutAdapter
+androidx.appcompat.app.AppCompatActivity <|-- com.example.exerwise.presentation.activity.SignInUpActivity
+androidx.appcompat.app.AppCompatActivity <|-- com.example.exerwise.presentation.activity.MainActivity
+androidx.fragment.app.Fragment <|-- com.example.exerwise.presentation.fragment.HomeFragment
+androidx.fragment.app.Fragment <|-- com.example.exerwise.presentation.fragment.ExercisesListFragment
+androidx.lifecycle.ViewModel <|-- com.example.exerwise.presentation.viewmodel.WorkoutViewModel
+androidx.lifecycle.ViewModel <|-- com.example.exerwise.presentation.viewmodel.SharedViewModel
+androidx.lifecycle.ViewModel <|-- com.example.exerwise.presentation.viewmodel.SignInViewModel
+com.example.exerwise.presentation.adapter.StartWorkoutAdapter +.. com.example.exerwise.presentation.adapter.StartWorkoutAdapter$ExerciseViewHolder
+com.example.exerwise.presentation.adapter.Adapter <|-- com.example.exerwise.presentation.adapter.StartWorkoutAdapter
+com.example.exerwise.presentation.adapter.SetsAdapter +.. com.example.exerwise.presentation.adapter.SetsAdapter$SetViewHolder
+com.example.exerwise.presentation.adapter.ViewHolder <|-- com.example.exerwise.presentation.adapter.SetsAdapter$SetViewHolder
+com.example.exerwise.presentation.adapter.SetsAdapter +.. com.example.exerwise.presentation.adapter.SetsAdapter$SetDiffCallback
+com.example.exerwise.presentation.adapter.ItemCallback <|-- com.example.exerwise.presentation.adapter.SetsAdapter$SetDiffCallback
+androidx.recyclerview.widget.ListAdapter <|-- com.example.exerwise.presentation.adapter.SetsAdapter
+androidx.fragment.app.Fragment <|-- com.example.exerwise.presentation.fragment.ProfileFragment
+androidx.lifecycle.AndroidViewModel <|-- com.example.exerwise.presentation.viewmodel.ExercisesListViewModel
+com.example.exerwise.data.db.AppDatabase +.. com.example.exerwise.data.db.AppDatabase$Companion
+androidx.room.RoomDatabase <|-- com.example.exerwise.data.db.AppDatabase
+com.example.exerwise.presentation.adapter.ExercisesListAdapter +.. com.example.exerwise.presentation.adapter.ExercisesListAdapter$ExerciseViewHolder
+com.example.exerwise.presentation.adapter.ViewHolder <|-- com.example.exerwise.presentation.adapter.ExercisesListAdapter$ExerciseViewHolder
+com.example.exerwise.presentation.adapter.Adapter <|-- com.example.exerwise.presentation.adapter.ExercisesListAdapter
+androidx.fragment.app.Fragment <|-- com.example.exerwise.presentation.fragment.CreateWorkoutFragment
+com.example.exerwise.presentation.adapter.FinishedWorkoutAdapterT +.. com.example.exerwise.presentation.adapter.FinishedWorkoutAdapterT$ExerciseViewHolder
+com.example.exerwise.presentation.adapter.Adapter <|-- com.example.exerwise.presentation.adapter.FinishedWorkoutAdapterT
+ <|.. WorkoutAdapter
+ <|.. WorkoutViewHolder
+ItemCallback <|-- WorkoutDiffCallback
+androidx.fragment.app.Fragment <|-- com.example.exerwise.presentation.fragment.FinishedWorkoutFragment
+androidx.lifecycle.ViewModel <|-- com.example.exerwise.presentation.viewmodel.CreateWorkoutViewModel
+androidx.fragment.app.Fragment <|-- com.example.exerwise.presentation.fragment.EditWorkoutFragment
+androidx.fragment.app.Fragment <|-- com.example.exerwise.presentation.fragment.StartWorkoutFragment
+com.example.exerwise.presentation.adapter.FinishedSetsAdapter +.. com.example.exerwise.presentation.adapter.FinishedSetsAdapter$SetViewHolder
+com.example.exerwise.presentation.adapter.ViewHolder <|-- com.example.exerwise.presentation.adapter.FinishedSetsAdapter$SetViewHolder
+com.example.exerwise.presentation.adapter.FinishedSetsAdapter +.. com.example.exerwise.presentation.adapter.FinishedSetsAdapter$SetDiffCallback
+com.example.exerwise.presentation.adapter.ItemCallback <|-- com.example.exerwise.presentation.adapter.FinishedSetsAdapter$SetDiffCallback
+androidx.recyclerview.widget.ListAdapter <|-- com.example.exerwise.presentation.adapter.FinishedSetsAdapter
+com.example.exerwise.presentation.adapter.FinishedWorkoutAdapter +.. com.example.exerwise.presentation.adapter.FinishedWorkoutAdapter$ViewHolder
+com.example.exerwise.presentation.adapter.ViewHolder <|-- com.example.exerwise.presentation.adapter.FinishedWorkoutAdapter$ViewHolder
+com.example.exerwise.presentation.adapter.FinishedWorkoutAdapter +.. com.example.exerwise.presentation.adapter.FinishedWorkoutAdapter$FinishedWorkoutDiffCallback
+com.example.exerwise.presentation.adapter.ItemCallback <|-- com.example.exerwise.presentation.adapter.FinishedWorkoutAdapter$FinishedWorkoutDiffCallback
+androidx.recyclerview.widget.ListAdapter <|-- com.example.exerwise.presentation.adapter.FinishedWorkoutAdapter
+com.example.exerwise.presentation.viewmodel.Factory <|.. com.example.exerwise.presentation.viewmodel.ViewModelFactory
+androidx.lifecycle.ViewModel <|-- com.example.exerwise.presentation.viewmodel.SignUpViewModel
+@enduml

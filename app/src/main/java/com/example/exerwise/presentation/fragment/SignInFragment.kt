@@ -1,11 +1,15 @@
 package com.example.exerwise.presentation.fragment
 
 import android.os.Bundle
+import android.text.TextUtils
 import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -15,16 +19,13 @@ import com.example.exerwise.databinding.FragmentSignInBinding
 import com.example.exerwise.presentation.viewmodel.SignInViewModel
 import com.example.exerwise.presentation.viewmodel.SignUpViewModel
 import com.example.exerwise.presentation.viewmodel.ViewModelFactory
+import com.google.firebase.auth.FirebaseAuth
 
 class SignInFragment : Fragment() {
     private var _binding: FragmentSignInBinding? = null
     private val binding get() = _binding!!
 
     private lateinit var signInViewModel: SignInViewModel
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -54,38 +55,41 @@ class SignInFragment : Fragment() {
                     }
                 }
         }
+
+        binding.forgotPassword.setOnClickListener {
+            showResetPasswordDialog()
+        }
         binding.signUpTextView.setOnClickListener { findNavController().navigate(R.id.signUpFragment) }
     }
 
-    override fun onViewStateRestored(savedInstanceState: Bundle?) {
-        super.onViewStateRestored(savedInstanceState)
-    }
+    private fun showResetPasswordDialog() {
+        val builder = AlertDialog.Builder(requireContext())
+        val inflater = LayoutInflater.from(requireContext())
+        val view = inflater.inflate(R.layout.dialog_reset_password, null)
+        builder.setView(view)
 
-    override fun onStart() {
-        super.onStart()
-    }
+        val dialog = builder.create()
 
-    override fun onResume() {
-        super.onResume()
-    }
+        val emailEditText = view.findViewById<EditText>(R.id.editTextEmail)
+        val resetPasswordButton = view.findViewById<Button>(R.id.buttonResetPassword)
 
-    override fun onPause() {
-        super.onPause()
-    }
+        resetPasswordButton.setOnClickListener {
+            val email = emailEditText.text.toString().trim()
+            if (TextUtils.isEmpty(email)) {
+                Toast.makeText(requireContext(), "Please enter your email", Toast.LENGTH_SHORT).show()
+            } else {
+                FirebaseAuth.getInstance().sendPasswordResetEmail(email)
+                    .addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            Toast.makeText(requireContext(), "Reset email sent", Toast.LENGTH_SHORT).show()
+                            dialog.dismiss()
+                        } else {
+                            Toast.makeText(requireContext(), "Error: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+            }
+        }
 
-    override fun onStop() {
-        super.onStop()
-    }
-
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
+        dialog.show()
     }
 }
