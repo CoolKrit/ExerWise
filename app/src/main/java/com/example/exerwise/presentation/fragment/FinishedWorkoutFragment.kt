@@ -51,6 +51,7 @@ class FinishedWorkoutFragment : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = adapter
 
+        binding.workoutName.text = viewModel.workout.value!!.name
         binding.textViewDuration.text = viewModel.workout.value!!.duration
         binding.textViewTotalWeight.text = viewModel.workout.value!!.volume
         binding.textViewTotalSets.text = viewModel.workout.value!!.sets

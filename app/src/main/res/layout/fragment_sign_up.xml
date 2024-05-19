@@ -48,8 +48,7 @@
             android:id="@+id/passwordInputLayout"
             layout="@layout/password_input_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/dimen_8" />
+            android:layout_height="wrap_content" />
 
         <Button
             android:id="@+id/signUp"
@@ -59,11 +58,15 @@
             android:layout_height="wrap_content"
             android:text="@string/sign_up" />
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
         <LinearLayout
             android:id="@+id/signInTextView"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_height="wrap_content"
             android:gravity="center|bottom"
             android:orientation="horizontal">
 

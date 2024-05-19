@@ -59,11 +59,15 @@
             android:layout_marginTop="@dimen/dimen_32"
             android:text="@string/sign_in" />
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
         <LinearLayout
             android:id="@+id/signUpTextView"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_height="wrap_content"
             android:gravity="center|bottom"
             android:orientation="horizontal">
 
