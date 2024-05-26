@@ -84,7 +84,6 @@ class CreateWorkoutFragment : Fragment() {
         binding.saveCreateWorkout.setOnClickListener {
             viewModel.workoutName = binding.workoutName.text.toString()
             if (viewModel.workoutName.isNotEmpty()) {
-                Log.e("TAG", "onViewCreated: ${viewModel.exercises.value?.get(0)!!.exerciseSetsList[0].setWeight}")
                 saveWorkoutToFirebase(Workout(Date().toString(), viewModel.workoutName, "", "", "", viewModel.exercises.value!!))
                 findNavController().popBackStack()
             } else {

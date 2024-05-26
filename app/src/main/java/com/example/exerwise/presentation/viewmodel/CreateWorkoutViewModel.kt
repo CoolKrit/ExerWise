@@ -42,6 +42,12 @@ class CreateWorkoutViewModel : ViewModel() {
         _exercises.value = updatedExercises as MutableList<Exercise>?
     }
 
+    fun removeExercise(exerciseId: Int) {
+        val currentExercises = _exercises.value?.toMutableList() ?: mutableListOf()
+        currentExercises.removeAll { it.id == exerciseId }
+        _exercises.value = currentExercises
+    }
+
     fun removeSet(exerciseId: Int, setNumber: Int) {
         val updatedExercises = _exercises.value?.map { exercise ->
             if (exercise.id == exerciseId) {

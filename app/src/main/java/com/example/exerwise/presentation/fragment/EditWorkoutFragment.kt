@@ -84,6 +84,7 @@ class EditWorkoutFragment : Fragment() {
             viewModel.workoutName = binding.workoutName.text.toString()
             if (viewModel.workoutName.isNotEmpty()) {
                 viewModel.saveWorkout()
+                findNavController().navigate(R.id.workoutFragment)
             } else {
                 Toast.makeText(requireContext(), "Please enter workout name", Toast.LENGTH_SHORT).show()
             }

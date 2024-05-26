@@ -42,8 +42,10 @@ class CreateWorkoutAdapter(private val viewModel: CreateWorkoutViewModel, privat
             Glide.with(binding.exerciseIV.context)
                 .load(exercise.gifUrl)
                 .into(binding.exerciseIV)
+
             binding.exerciseDeleteButton.setOnClickListener {
                 exercises.remove(exercise)
+                viewModel.removeExercise(exercise.id)
                 notifyDataSetChanged()
             }
 

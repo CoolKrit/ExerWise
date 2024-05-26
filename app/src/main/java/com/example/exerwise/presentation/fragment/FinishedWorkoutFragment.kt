@@ -57,7 +57,7 @@ class FinishedWorkoutFragment : Fragment() {
         binding.textViewTotalSets.text = viewModel.workout.value!!.sets
 
         binding.closeEditWorkout.setOnClickListener {
-            findNavController().popBackStack()
+            findNavController().navigate(R.id.homeFragment)
         }
 
         viewModel.exercises.observe(viewLifecycleOwner) { exercises ->
