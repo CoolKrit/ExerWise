@@ -16,14 +16,11 @@ import com.example.exerwise.presentation.viewmodel.SignUpViewModel
 import com.example.exerwise.presentation.viewmodel.ViewModelFactory
 
 class SignUpFragment : Fragment() {
+
     private var _binding: FragmentSignUpBinding? = null
     private val binding get() = _binding!!
 
     private lateinit var signUpViewModel: SignUpViewModel
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -56,32 +53,8 @@ class SignUpFragment : Fragment() {
         binding.signInTextView.setOnClickListener { findNavController().navigate(R.id.signInFragment) }
     }
 
-    override fun onViewStateRestored(savedInstanceState: Bundle?) {
-        super.onViewStateRestored(savedInstanceState)
-    }
-
-    override fun onStart() {
-        super.onStart()
-    }
-
-    override fun onPause() {
-        super.onPause()
-    }
-
-    override fun onStop() {
-        super.onStop()
-    }
-
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-    }
-
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
     }
 }

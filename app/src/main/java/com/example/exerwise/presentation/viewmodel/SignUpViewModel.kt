@@ -9,12 +9,15 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
 class SignUpViewModel(private val authRepository: AuthRepository) : ViewModel() {
+
     fun signUpUser(userName: String, userEmail: String, userPassword: String): LiveData<Boolean> {
         val result = MutableLiveData<Boolean>()
         if (validateData(userName, userEmail, userPassword)) {
             authRepository.signUpUser(userEmail, userPassword, userName) { success ->
                 result.postValue(success)
             }
+        } else {
+            result.postValue(false)
         }
         return result
     }

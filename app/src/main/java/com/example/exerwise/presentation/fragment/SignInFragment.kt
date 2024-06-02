@@ -22,6 +22,7 @@ import com.example.exerwise.presentation.viewmodel.ViewModelFactory
 import com.google.firebase.auth.FirebaseAuth
 
 class SignInFragment : Fragment() {
+
     private var _binding: FragmentSignInBinding? = null
     private val binding get() = _binding!!
 

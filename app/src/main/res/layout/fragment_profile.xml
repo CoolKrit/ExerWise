@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:padding="@dimen/dimen_16"
     tools:context=".presentation.fragment.ProfileFragment">
@@ -51,12 +52,27 @@
 
     </LinearLayout>
 
-    <com.github.mikephil.charting.charts.BarChart
-        android:id="@+id/chart"
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tabMode="fixed"
+        app:tabGravity="fill"
+        android:layout_marginTop="@dimen/dimen_16" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginBottom="@dimen/dimen_16"
         android:layout_weight="1" />
+
+    <!--<com.github.mikephil.charting.charts.BarChart
+        android:id="@+id/chart"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="@dimen/dimen_16"
+        android:layout_weight="1" />-->
 
     <Button
         android:id="@+id/logoutButton"

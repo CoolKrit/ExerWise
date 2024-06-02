@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import com.example.exerwise.data.repository.AuthRepository
 
 class SignInViewModel(private val authRepository: AuthRepository) : ViewModel() {
+
     fun signInUser(userEmail: String, userPassword: String): LiveData<Boolean> {
         val result = MutableLiveData<Boolean>()
         if (validateData(userEmail, userPassword)) {
